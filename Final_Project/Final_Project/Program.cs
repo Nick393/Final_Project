@@ -19,7 +19,16 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
-
+app.MapAreaControllerRoute(
+    name: "mentor",
+    areaName: "Mentor",
+    pattern: "Mentor/{controller=Home}/{action=Approval}/{id?}"
+    );
+app.MapAreaControllerRoute(
+    name: "student",
+    areaName: "Student",
+    pattern: "Student/{controller=Home}/{action=Index}/{id?}"
+    );
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
