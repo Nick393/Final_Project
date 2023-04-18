@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Final_Project.Models;
 
-namespace Bookstore.Controllers
+namespace Final_Project.Controllers
 {
     public class AccountController : Controller
     {
