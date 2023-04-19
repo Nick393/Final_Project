@@ -13,16 +13,15 @@ namespace Final_Project.Models
                 provider.GetRequiredService<UserManager<Account>>();
 
             string username = "admin";
-            string password = "1234";
+            string password = "Sesame";
             string roleName = "Admin";
 
-            // if role doesn't exist, create it
             if (await roleManager.FindByNameAsync(roleName) == null)
             {
                 await roleManager.CreateAsync(new IdentityRole(roleName));
             }
 
-            // if username doesn't exist, create it and add to role
+           
             if (await userManager.FindByNameAsync(username) == null)
             {
                 Account user = new Account { UserName = username };

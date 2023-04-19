@@ -1,9 +1,11 @@
 ﻿using Final_Project.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace Final_Project.Areas.Mentor.Controllers
 {
+    [Authorize(Roles ="Admin")]
     [Area("Mentor")]
     public class HomeController : Controller
     {
