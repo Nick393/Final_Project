@@ -6,7 +6,7 @@ using Final_Project.Models.DomainModels;
 
 namespace Final_Project.Areas.Mentor.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    /*[Authorize(Roles = "Admin")]
     [Area("Mentor")]
     public class UserController : Controller
     {
@@ -127,5 +127,5 @@ namespace Final_Project.Areas.Mentor.Controllers
             if (result.Succeeded) { }
             return RedirectToAction("Index");
         }
-    }
+    }*/
 }

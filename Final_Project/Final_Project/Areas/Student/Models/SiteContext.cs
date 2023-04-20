@@ -5,7 +5,7 @@ using Final_Project.Models.DomainModels;
 
 namespace Final_Project.Areas.Student.Models
 {
-    public class SiteContext : DbContext
+    /*public class SiteContext : DbContext
     {
         public SiteContext(DbContextOptions<SiteContext> options) : base(options) { }
         public DbSet<Account> Accounts { get; set; } = null!;
@@ -23,7 +23,7 @@ namespace Final_Project.Areas.Student.Models
                 );
             modelBuilder.Entity<Announcement>().HasData(new Announcement { Id = "0", Name = "Welcome to the announcements page" });
         }
-    }
+    }*/
 
 
 

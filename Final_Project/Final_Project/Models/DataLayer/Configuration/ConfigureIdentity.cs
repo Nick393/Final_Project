@@ -15,9 +15,9 @@ namespace Final_Project.Models.DataLayer.Configuration
 
             string username = "admin";
             string password = "Sesame";
-            string roleName = "";
+            string roleName = "Admin";
 
-            if (await roleManager.FindByNameAsync(roleName) == null)
+            if (await roleManager.FindByIdAsync(roleName) == null)
             {
                 await roleManager.CreateAsync(new IdentityRole(roleName));
             }

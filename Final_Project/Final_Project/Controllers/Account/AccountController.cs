@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
-using Final_Project.Models;
 using Final_Project.Models.DomainModels;
+using Final_Project.Models.ViewModels;
 
-namespace Final_Project.Controllers
+namespace Final_Project.Controllers.Controllers
 {
     public class AccountController : Controller
     {
@@ -28,7 +28,8 @@ namespace Final_Project.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new Account { 
+                var user = new Account
+                {
                     UserName = model.Username,
                     Email = model.Email,
                     FirstName = model.Firstname,
@@ -43,7 +44,7 @@ namespace Final_Project.Controllers
                 }
                 else
                 {
-                    foreach (var error in result.Errors) 
+                    foreach (var error in result.Errors)
                     {
                         ModelState.AddModelError("", error.Description);
                     }
@@ -60,7 +61,7 @@ namespace Final_Project.Controllers
         }
 
         [HttpGet]
-        public IActionResult LogIn(string returnURL = "")
+        public IActionResult LogIn(string returnURL)
         {
             var model = new LoginViewModel { ReturnUrl = returnURL };
             return View(model);
@@ -70,14 +71,14 @@ namespace Final_Project.Controllers
         public async Task<IActionResult> LogIn(LoginViewModel model)
         {
             if (ModelState.IsValid)
-            {                
+            {
                 var result = await signInManager.PasswordSignInAsync(
-                    model.Username, model.Password, isPersistent: model.RememberMe, 
+                    model.Username, model.Password, isPersistent: model.RememberMe,
                     lockoutOnFailure: false);
 
                 if (result.Succeeded)
                 {
-                    if (!string.IsNullOrEmpty(model.ReturnUrl) && 
+                    if (!string.IsNullOrEmpty(model.ReturnUrl) &&
                         Url.IsLocalUrl(model.ReturnUrl))
                     {
                         return Redirect(model.ReturnUrl);
@@ -100,8 +101,9 @@ namespace Final_Project.Controllers
         [HttpGet]
         public IActionResult ChangePassword()
         {
-            var model = new ChangePasswordViewModel { 
-                Username = User.Identity?.Name ?? "" 
+            var model = new ChangePasswordViewModel
+            {
+                Username = User.Identity?.Name ?? ""
             };
             return View(model);
         }
@@ -114,7 +116,7 @@ namespace Final_Project.Controllers
                 Account user = await userManager.FindByNameAsync(model.Username);
                 var result = await userManager.ChangePasswordAsync(user,
                     model.OldPassword, model.NewPassword);
-                
+
                 if (result.Succeeded)
                 {
                     TempData["message"] = "Password changed successfully";

@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Final_Project.Models.DomainModels;
 using Final_Project.Models.DataLayer.Configuration;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.

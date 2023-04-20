@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Final_Project.Models
+namespace Final_Project.Models.ViewModels
 {
     public class LoginViewModel
     {
@@ -12,7 +12,7 @@ namespace Final_Project.Models
         [StringLength(255)]
         public string Password { get; set; } = string.Empty;
 
-        public string ReturnUrl { get; set; } = "";
+        public string ReturnUrl { get; set; } = string.Empty;
 
         public bool RememberMe { get; set; }
 
