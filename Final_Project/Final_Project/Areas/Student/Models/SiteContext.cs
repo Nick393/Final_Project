@@ -1,6 +1,7 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using Final_Project.Models;
+using Final_Project.Models.DomainModels;
 
 namespace Final_Project.Areas.Student.Models
 {

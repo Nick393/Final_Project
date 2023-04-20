@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Mentor\Models\" />
+    <Folder Include="Controllers\Account\" />
     <Folder Include="Views\Account\" />
   </ItemGroup>
 

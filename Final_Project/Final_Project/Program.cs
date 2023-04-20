@@ -1,19 +1,21 @@
 using Microsoft.EntityFrameworkCore;
-using Final_Project.Models;
 using Final_Project.Areas.Student.Models;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Final_Project.Models.DomainModels;
+using Final_Project.Models.DataLayer.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<SiteContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SiteContext")));
+builder.Services.AddDbContext<Final_Project.Models.SiteContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("SiteContext")));
 builder.Services.AddIdentity<Account, IdentityRole>(options => {
     options.Password.RequiredLength = 4;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireDigit = false;
-}).AddEntityFrameworkStores<SiteContext>()
+}).AddEntityFrameworkStores<Final_Project.Models.SiteContext>()
   .AddDefaultTokenProviders();
 var app = builder.Build();
 

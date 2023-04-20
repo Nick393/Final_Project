@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Final_Project.Models.DomainModels;
+using Microsoft.AspNetCore.Identity;
 
-namespace Final_Project.Models
+namespace Final_Project.Models.DataLayer.Configuration
 {
     public class ConfigureIdentity
     {
@@ -14,14 +15,14 @@ namespace Final_Project.Models
 
             string username = "admin";
             string password = "Sesame";
-            string roleName = "Admin";
+            string roleName = "";
 
             if (await roleManager.FindByNameAsync(roleName) == null)
             {
                 await roleManager.CreateAsync(new IdentityRole(roleName));
             }
 
-           
+
             if (await userManager.FindByNameAsync(username) == null)
             {
                 Account user = new Account { UserName = username };

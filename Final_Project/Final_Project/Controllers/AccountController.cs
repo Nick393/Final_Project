@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
 using Final_Project.Models;
+using Final_Project.Models.DomainModels;
 
 namespace Final_Project.Controllers
 {
