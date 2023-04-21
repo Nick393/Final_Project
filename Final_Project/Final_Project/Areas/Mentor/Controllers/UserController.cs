@@ -23,7 +23,7 @@ namespace Final_Project.Areas.Mentor.Controllers
             roleManager = roleMngr;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Approval()
         {
             List<Account> users = new List<Account>();
             foreach (Account user in userManager.Users)
@@ -56,7 +56,7 @@ namespace Final_Project.Areas.Mentor.Controllers
                     TempData["message"] = errorMessage;
                 }
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Approval");
         }
 
         [HttpGet]
@@ -75,7 +75,7 @@ namespace Final_Project.Areas.Mentor.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Approval");
                 }
                 else
                 {
@@ -102,7 +102,23 @@ namespace Final_Project.Areas.Mentor.Controllers
                 Account user = await userManager.FindByIdAsync(id);
                 await userManager.AddToRoleAsync(user, adminRole.Name);
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("Approval");
+        }
+        [HttpPost]
+        public async Task<IActionResult> AddToStudent(string id)
+        {
+            IdentityRole adminRole = await roleManager.FindByNameAsync("Student");
+            if (adminRole == null)
+            {
+                TempData["message"] = "Student role does not exist. "
+                    + "Click 'Create Student Role' button to create it.";
+            }
+            else
+            {
+                Account user = await userManager.FindByIdAsync(id);
+                await userManager.AddToRoleAsync(user, adminRole.Name);
+            }
+            return RedirectToAction("Approval");
         }
 
         [HttpPost]
@@ -111,7 +127,15 @@ namespace Final_Project.Areas.Mentor.Controllers
             Account user = await userManager.FindByIdAsync(id);
             var result = await userManager.RemoveFromRoleAsync(user, "Admin");
             if (result.Succeeded) { }
-            return RedirectToAction("Index");
+            return RedirectToAction("Approval");
+        }
+        [HttpPost]
+        public async Task<IActionResult> RemoveFromStudent(string id)
+        {
+            Account user = await userManager.FindByIdAsync(id);
+            var result = await userManager.RemoveFromRoleAsync(user, "Student");
+            if (result.Succeeded) { }
+            return RedirectToAction("Approval");
         }
 
         [HttpPost]
@@ -120,7 +144,7 @@ namespace Final_Project.Areas.Mentor.Controllers
             IdentityRole role = await roleManager.FindByIdAsync(id);
             var result = await roleManager.DeleteAsync(role);
             if (result.Succeeded) { }
-            return RedirectToAction("Index");
+            return RedirectToAction("Approval");
         }
 
         [HttpPost]
@@ -128,7 +152,14 @@ namespace Final_Project.Areas.Mentor.Controllers
         {
             var result = await roleManager.CreateAsync(new IdentityRole("Admin"));
             if (result.Succeeded) { }
-            return RedirectToAction("Index");
+            return RedirectToAction("Approval");
+        }
+        [HttpPost]
+        public async Task<IActionResult> CreateStudentRole()
+        {
+            var result = await roleManager.CreateAsync(new IdentityRole("Student"));
+            if (result.Succeeded) { }
+            return RedirectToAction("Approval");
         }
     }
 }

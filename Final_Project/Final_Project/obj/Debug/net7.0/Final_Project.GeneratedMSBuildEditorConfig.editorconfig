@@ -16,16 +16,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\cmgke\Documents\GitHub\Final_Project\Final_Project\Final_Project
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/Home/Approval.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXEhvbWVcQXBwcm92YWwuY3NodG1s
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/Shared/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXFNoYXJlZFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/User/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXFVzZXJcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/User/Approval.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXFVzZXJcQXBwcm92YWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXFVzZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/_ViewStart.cshtml]

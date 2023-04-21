@@ -5,7 +5,8 @@ using Final_Project.Models.ViewModels;
 namespace Final_Project.Areas.Student.Controllers
 {
     [Area("Student")]
-    [Authorize]
+    
+    [Authorize(Roles="Student")]
     public class HomeController : Controller
     {
         public IActionResult Index()
