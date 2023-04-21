@@ -20,4 +20,14 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Mentor\Views\Shared\" />
+    <Folder Include="Areas\Student\Views\Shared\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Areas\Mentor\Views\User\Add.cshtml" />
+    <None Include="Areas\Mentor\Views\User\Index.cshtml" />
+  </ItemGroup>
+
 </Project>

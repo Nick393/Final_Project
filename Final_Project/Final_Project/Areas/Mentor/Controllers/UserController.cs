@@ -4,9 +4,12 @@ using Microsoft.AspNetCore.Identity;
 using Final_Project.Models;
 using Final_Project.Models.DomainModels;
 
+using Final_Project.Models.ViewModels;
+using Final_Project.Areas.Mentor.Models;
+
 namespace Final_Project.Areas.Mentor.Controllers
 {
-    /*[Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
     [Area("Mentor")]
     public class UserController : Controller
     {
@@ -127,5 +130,5 @@ namespace Final_Project.Areas.Mentor.Controllers
             if (result.Succeeded) { }
             return RedirectToAction("Index");
         }
-    }*/
+    }
 }

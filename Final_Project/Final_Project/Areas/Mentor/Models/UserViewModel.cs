@@ -1,7 +1,7 @@
 ﻿using Final_Project.Models.DomainModels;
 using Microsoft.AspNetCore.Identity;
 
-namespace Final_Project.Models
+namespace Final_Project.Areas.Mentor.Models
 {
     public class UserViewModel
     {

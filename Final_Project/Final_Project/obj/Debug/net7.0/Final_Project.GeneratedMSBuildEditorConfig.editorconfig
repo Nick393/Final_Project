@@ -20,12 +20,32 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXEhvbWVcQXBwcm92YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/User/Add.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXFVzZXJcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXFVzZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Models/RegisterModel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxNb2RlbHNcUmVnaXN0ZXJNb2RlbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/CreateAccount.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xDcmVhdGVBY2NvdW50LmNzaHRtbA==
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Home/CreateAccount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xIb21lXENyZWF0ZUFjY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Account/AccessDenied.cshtml]

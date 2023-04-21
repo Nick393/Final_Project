@@ -31,6 +31,27 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Teams">Teams</a><!--Make the action for this-->
                         </li>
+@using Final_Project.Models.DomainModels;
+                        @using Microsoft.AspNetCore.Identity
+                        @inject SignInManager<Account> signInManager
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            // signed-in user - Log Out button and username and change password link
+                            <li class="nav-item">
+                                <a class="nav-link text-dark"
+                               asp-action="ChangePassword" asp-controller="Account" asp-area="">
+                                    <span class="fas fa-edit"></span>&nbsp;Change Password
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <form method="post" asp-action="LogOut" asp-controller="Account"
+                                  asp-area="">
+                                    <input type="submit" value="Log Out"
+                                       class="btn btn-outline-dark" />
+                                    <span class="text-dark">@User.Identity?.Name</span>
+                                </form>
+                            </li>
+                        }
                         
 
                     </ul>
@@ -38,7 +59,7 @@
                 <div class="navbar-fixed-top d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Final_Project//Views//Account//Login">Login</a><!--Make the action for this-->
+                            <a class="nav-link text-dark" asp-area="Student" asp-controller="Home" asp-action="Index">Student</a><!--Make the action for this-->
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Mentor" asp-controller="Home" asp-action="Approval">Mentors</a><!--Make the action for this-->
