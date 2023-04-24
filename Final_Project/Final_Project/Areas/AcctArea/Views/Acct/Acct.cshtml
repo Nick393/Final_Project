@@ -3,4 +3,20 @@
 *@
 @{
 }
-<h1>Hellow world</h1>
+<h1>Your Account</h1>
+@if(User.IsInRole("Admin"))
+{
+    <P>You are a site administrator</P>
+}
+else if(User.IsInRole("Student"))
+{
+    <p>You are a registered Student</p>
+}
+else
+{
+    <p>Your account is not yet confirmed by a Mentor</p>
+}
+<a method="get" asp-action="ChangePassword" asp-controller="Account" asp-area="">
+    <input type="submit" value="Change Password"
+           class="btn btn-outline-dark" />
+</a>
