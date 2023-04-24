@@ -132,6 +132,10 @@ namespace Final_Project.Controllers.Controllers
             }
             return View(model);
         }
+        public IActionResult MyAccount()
+        {
+            return View();
+        }
 
     }
 }

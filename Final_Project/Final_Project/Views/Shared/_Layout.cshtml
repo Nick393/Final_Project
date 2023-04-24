@@ -12,9 +12,9 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Ice Image</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img href="https://static.wixstatic.com/media/548d9b_e6c98b258a8e43fc8fb505ffd085e7da~mv2.png/v1/fill/w_216,h_206,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Team%20ICE%20logo%20Recolor.png" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                        aria-expanded="true" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-fixed-top d-sm-inline-flex justify-content-between">
@@ -38,17 +38,17 @@
                         {
                             // signed-in user - Log Out button and username and change password link
                             <li class="nav-item">
-                                <a class="nav-link text-dark"
-                               asp-action="ChangePassword" asp-controller="Account" asp-area="">
-                                    <span class="fas fa-edit"></span>&nbsp;Change Password
-                                </a>
-                            </li>
-                            <li class="nav-item">
                                 <form method="post" asp-action="LogOut" asp-controller="Account"
                                   asp-area="">
                                     <input type="submit" value="Log Out"
                                        class="btn btn-outline-dark" />
                                     <span class="text-dark">@User.Identity?.Name</span>
+                                </form>
+                            </li>
+                            <li class="nav-item">
+                                <form method="post" asp-action="MyAccount" asp-controller="Account" asp-area="">
+                                    <input type="submit" value="My Account"
+                                       class="btn btn-outline-dark" />
                                 </form>
                             </li>
                         }
@@ -58,12 +58,23 @@
                 </div>
                 <div class="navbar-fixed-top d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Student" asp-controller="Home" asp-action="Index">Student</a><!--Make the action for this-->
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Mentor" asp-controller="User" asp-action="Approval">Mentors</a><!--Make the action for this-->
-                        </li>
+                         @if (!signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="Student" asp-controller="Home" asp-action="Index">Log In</a><!--Make the action for this-->
+                            </li>
+                        }
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="AccountArea" asp-controller="Acct" asp-action="Acct">My Account</a><!--Make the action for this-->
+                            </li>
+                            @if (User.IsInRole("Admin")) {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="Mentor" asp-controller="User" asp-action="Approval">Admin</a><!--Make the action for this-->
+                                </li>
+                            }
+                        }
                     </ul>
                 </div>
             </div>

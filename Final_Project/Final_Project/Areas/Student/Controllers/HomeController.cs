@@ -6,7 +6,8 @@ namespace Final_Project.Areas.Student.Controllers
 {
     [Area("Student")]
     
-    [Authorize(Roles="Student")]
+    [Authorize(Roles="Student, Admin")]
+    
     public class HomeController : Controller
     {
         public IActionResult Index()

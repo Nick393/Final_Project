@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Areas\AcctArea\Models\" />
     <Folder Include="Areas\Mentor\Views\Approval\" />
     <Folder Include="Areas\Mentor\Views\Home\" />
     <Folder Include="Areas\Student\Views\Shared\" />
