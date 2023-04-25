@@ -22,7 +22,7 @@ namespace Final_Project.Models.DataLayer.Configuration
                 await roleManager.CreateAsync(new IdentityRole(roleName));
             }
 
-
+            
             if (await userManager.FindByNameAsync(username) == null)
             {
                 Account user = new Account { UserName = username };
@@ -32,6 +32,25 @@ namespace Final_Project.Models.DataLayer.Configuration
                     await userManager.AddToRoleAsync(user, roleName);
                 }
             }
+            string StudentName = "Dean";
+            string Studentpassword = "Sesame";
+            string role = "Student";
+            if (await roleManager.FindByIdAsync(role) == null)
+            {
+                await roleManager.CreateAsync(new IdentityRole(role));
+            }
+
+
+            if (await userManager.FindByNameAsync(StudentName) == null)
+            {
+                Account user = new Account { UserName = StudentName };
+                var result = await userManager.CreateAsync(user, Studentpassword);
+                if (result.Succeeded)
+                {
+                    await userManager.AddToRoleAsync(user, role);
+                }
+            }
+
         }
     }
 
