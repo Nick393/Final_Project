@@ -1,0 +1,33 @@
+﻿@using Final_Project.Areas.Student.Models.DomainModels;
+@model Final_Project.Areas.Student.Models.ViewModels.MessageViewModel
+@{
+    ViewData["Title"] = " | Messages";
+}
+
+<h1 class="mb-2">Messages</h1>
+
+<h5 class="mt-2"><a asp-action="PostMessage">Post a message</a></h5>
+
+<table class="table table-bordered table-striped table-sm">
+    <thead>
+        <tr><th>Message</th><th>Action</th><th></th><th></th><th></th></tr>
+    </thead>
+    <tbody>
+    @if (Model.Messages.Count() == 0)
+    {
+        <tr><td colspan="5">There are no Messages</td></tr>
+    }
+    else
+    {
+             
+        @foreach (Message msg in Model.Messages)
+        {
+            <tr>
+            
+            <td>@msg.Title</td>
+            <td>@msg.Body</td>
+           </tr>
+        }
+                
+    }
+    </table>

@@ -1,8 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Final_Project.Areas.Student.Models;
+using Final_Project.Areas.Students.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace Final_Project.Models
+namespace Final_Project.Areas.Student.Models
 {
-    public class Repository<T> : IRepository<T> where T : class
+   /* public class Repository<T> : IRepository<T> where T : class
     {
         protected SiteContext context { get; set; }
         private DbSet<T> dbset { get; set; }
@@ -50,5 +52,5 @@ namespace Final_Project.Models
 
             return query;
         }
-    }
+    }*/
 }

@@ -4,6 +4,7 @@ using Final_Project.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final_Project.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    partial class SiteContextModelSnapshot : ModelSnapshot
+    [Migration("20230424164332_messages")]
+    partial class messages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,67 +24,6 @@ namespace Final_Project.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Final_Project.Areas.Student.Models.DomainModels.Message", b =>
-                {
-                    b.Property<string>("id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Body")
-                        .IsRequired()
-                        .HasMaxLength(3000)
-                        .HasColumnType("nvarchar(3000)");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("UserName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("id");
-
-                    b.ToTable("Messages");
-
-                    b.HasData(
-                        new
-                        {
-                            id = "1",
-                            Body = "Novel",
-                            Title = "novel",
-                            UserName = "Null"
-                        },
-                        new
-                        {
-                            id = "2",
-                            Body = "Memoir",
-                            Title = "memoir",
-                            UserName = "Null"
-                        },
-                        new
-                        {
-                            id = "3",
-                            Body = "Mystery",
-                            Title = "mystery",
-                            UserName = "Null"
-                        },
-                        new
-                        {
-                            id = "4",
-                            Body = "Science Fiction",
-                            Title = "scifi",
-                            UserName = "Null"
-                        },
-                        new
-                        {
-                            id = "5",
-                            Body = "History",
-                            Title = "history",
-                            UserName = "Null"
-                        });
-                });
 
             modelBuilder.Entity("Final_Project.Models.DomainModels.Account", b =>
                 {
