@@ -79,39 +79,3 @@
     </tbody>
 </table>
 
-<h1 class="mb-2">Manage Roles</h1>
-
-@if (Model.Roles.Count() == 0)
-{
-    <form method="post" asp-action="CreateAdminRole">
-        <button type="submit" class="btn btn-primary">
-        Create Admin Role</button>
-    </form>
-}
-else if(Model.Roles.Count()==1)
-{
-    <form method="post" asp-action="CreateStudentRole">
-        <button type="submit" class="btn btn-primary">
-            Create Student Role
-        </button>
-    </form>
-}
-else
-{
-    <table class="table table-bordered table-striped table-sm">
-        <thead>
-            <tr><th>Role</th><th></th></tr>
-        </thead>
-        <tbody>
-            @foreach (var role in Model.Roles)
-            {
-            <tr>
-                <td>@role.Name</td>
-                <td>
-                    <p>This role cannot be deleted</p>
-                </td>
-            </tr>
-            }
-        </tbody>
-    </table>
-}

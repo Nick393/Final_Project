@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cmgke\\Documents\\GitHub\\Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj": {}
+    "C:\\Users\\othel\\OneDrive\\Desktop\\Code\\Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cmgke\\Documents\\GitHub\\Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj": {
+    "C:\\Users\\othel\\OneDrive\\Desktop\\Code\\Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cmgke\\Documents\\GitHub\\Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj",
+        "projectUniqueName": "C:\\Users\\othel\\OneDrive\\Desktop\\Code\\Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj",
         "projectName": "Final_Project",
-        "projectPath": "C:\\Users\\cmgke\\Documents\\GitHub\\Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj",
-        "packagesPath": "C:\\Users\\cmgke\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cmgke\\Documents\\GitHub\\Final_Project\\Final_Project\\Final_Project\\obj\\",
+        "projectPath": "C:\\Users\\othel\\OneDrive\\Desktop\\Code\\Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj",
+        "packagesPath": "C:\\Users\\othel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\othel\\OneDrive\\Desktop\\Code\\Final_Project\\Final_Project\\Final_Project\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\cmgke\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\othel\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

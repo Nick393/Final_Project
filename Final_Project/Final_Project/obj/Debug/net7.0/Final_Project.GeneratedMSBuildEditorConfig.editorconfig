@@ -9,125 +9,117 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Final_Project
 build_property.RootNamespace = Final_Project
-build_property.ProjectDir = C:\Users\cmgke\Documents\GitHub\Final_Project\Final_Project\Final_Project\
+build_property.ProjectDir = C:\Users\othel\OneDrive\Desktop\Code\Final_Project\Final_Project\Final_Project\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\cmgke\Documents\GitHub\Final_Project\Final_Project\Final_Project
+build_property.MSBuildProjectDirectory = C:\Users\othel\OneDrive\Desktop\Code\Final_Project\Final_Project\Final_Project
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/AcctArea/Views/Acct/Acct.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/AcctArea/Views/Acct/Acct.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjdEFyZWFcVmlld3NcQWNjdFxBY2N0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/AcctArea/Views/_ViewImports.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/AcctArea/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjdEFyZWFcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/AcctArea/Views/_ViewStart.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/AcctArea/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjdEFyZWFcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/Shared/_ViewImports.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/Shared/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXFNoYXJlZFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/User/Add.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/User/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXFVzZXJcQWRkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/User/Approval.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/User/Approval.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXFVzZXJcQXBwcm92YWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/User/Index.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/User/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXFVzZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/_ViewImports.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/_ViewStart.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Mentor/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Models/RegisterModel.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxNb2RlbHNcUmVnaXN0ZXJNb2RlbC5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Home/CreateAccount.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Home/CreateAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xIb21lXENyZWF0ZUFjY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Home/Index.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Message/MessageBoard.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xNZXNzYWdlXE1lc3NhZ2VCb2FyZC5jc2h0bWw=
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Home/MessageBoard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xIb21lXE1lc3NhZ2VCb2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Message/PostMessage.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xNZXNzYWdlXFBvc3RNZXNzYWdlLmNzaHRtbA==
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Home/PostMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xIb21lXFBvc3RNZXNzYWdlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/_ViewImports.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Student/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/_ViewStart.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Areas/Student/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Account/AccessDenied.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/Account/AccessDenied.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Account/ChangePassword.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/Account/ChangePassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Account/Login.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Account/MyAccount.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/Account/MyAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxNeUFjY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Account/Register.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Home/About.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/Home/About.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBYm91dC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Home/Index.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Home/Teams.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/Home/Teams.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxUZWFtcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Shared/Error.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/_ViewImports.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/_ViewStart.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Shared/_Layout.cshtml]
+[C:/Users/othel/OneDrive/Desktop/Code/Final_Project/Final_Project/Final_Project/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-ripcdf71y9
