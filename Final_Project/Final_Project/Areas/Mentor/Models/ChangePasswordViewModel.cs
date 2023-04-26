@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Final_Project.Models.DomainModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace Final_Project.Areas.Mentor.Models.ViewModels
 {
     public class ChangePasswordViewModel
     {
-        [Required(ErrorMessage="Please enter the username to the account")]
         public string Username { get; set; } = string.Empty;
 
         
@@ -18,5 +18,7 @@ namespace Final_Project.Areas.Mentor.Models.ViewModels
         [DataType(DataType.Password)]
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; } = string.Empty;
+        
+       
     }
 }

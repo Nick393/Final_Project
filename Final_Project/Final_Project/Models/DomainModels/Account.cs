@@ -21,5 +21,9 @@ namespace Final_Project.Models.DomainModels
             if(RoleNames.Contains(roleName)) return true;
             return false;
         }
+        public string getName()
+        {
+            return UserName;
+        }
     }
 }

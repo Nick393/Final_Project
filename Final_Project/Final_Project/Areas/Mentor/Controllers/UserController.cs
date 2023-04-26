@@ -162,11 +162,17 @@ namespace Final_Project.Areas.Mentor.Controllers
             return RedirectToAction("Approval");
         }
         [HttpGet]
-        public IActionResult ChangePassword()
+        public async Task<IActionResult> ChangePassword(string name)
         {
-            var model = new ChangePasswordViewModel
+            Account user = await userManager.FindByNameAsync(name);
+            var model = new Final_Project.Areas.Mentor.Models.ViewModels.ChangePasswordViewModel
             {
-                Username = User.Identity?.Name ?? ""
+
+                 Username = user.UserName
+                //Username = User.Identity?.Name ?? ""
+
+                //Massive Bugger! accounts must still be signed in for this to work properly/text for details
+
             };
             return View(model);
         }
@@ -174,25 +180,24 @@ namespace Final_Project.Areas.Mentor.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangePassword(Final_Project.Areas.Mentor.Models.ViewModels.ChangePasswordViewModel model)
         {
-            string resetToken = await userManager.GeneratePasswordResetTokenAsync(model.id);
-            IdentityResult passwordChangeResult = await userManager.ResetPasswordAsync(model.id, resetToken, model.NewPassword);
-            if (ModelState.IsValid)
-            {
-                Account user = await userManager.FindByNameAsync(model.Username);
-                
 
-                if (result.Succeeded)
-                {
-                    TempData["message"] = "Password changed successfully";
-                    return RedirectToAction("Approval");
-                }
-                else
-                {
-                    foreach (IdentityError error in result.Errors)
-                    {
-                        ModelState.AddModelError("", error.Description);
-                    }
-                }
+             if (ModelState.IsValid)
+             {
+            
+                Account user = await userManager.FindByNameAsync(model.Username);
+                string resetToken = await userManager.GeneratePasswordResetTokenAsync(user);
+                IdentityResult passwordChangeResult = await userManager.ResetPasswordAsync(user, resetToken, model.NewPassword);
+            
+
+                 
+                 
+                     TempData["message"] = "Password changed successfully";
+                     return RedirectToAction("Approval");
+                 
+                 
+                 
+                    
+                 
             }
             return View(model);
         }
