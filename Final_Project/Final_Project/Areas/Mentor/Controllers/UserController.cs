@@ -161,5 +161,40 @@ namespace Final_Project.Areas.Mentor.Controllers
             if (result.Succeeded) { }
             return RedirectToAction("Approval");
         }
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            var model = new ChangePasswordViewModel
+            {
+                Username = User.Identity?.Name ?? ""
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(Final_Project.Areas.Mentor.Models.ViewModels.ChangePasswordViewModel model)
+        {
+            string resetToken = await userManager.GeneratePasswordResetTokenAsync(model.id);
+            IdentityResult passwordChangeResult = await userManager.ResetPasswordAsync(model.id, resetToken, model.NewPassword);
+            if (ModelState.IsValid)
+            {
+                Account user = await userManager.FindByNameAsync(model.Username);
+                
+
+                if (result.Succeeded)
+                {
+                    TempData["message"] = "Password changed successfully";
+                    return RedirectToAction("Approval");
+                }
+                else
+                {
+                    foreach (IdentityError error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                }
+            }
+            return View(model);
+        }
     }
 }

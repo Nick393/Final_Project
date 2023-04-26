@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 navbar-fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="Content/Images/Ice.jpg"alt="Ice Image" /></a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/download.png" alt="Ice Image" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="true" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -27,7 +27,7 @@
                      @if(signInManager.IsSignedIn(User)&&(User.IsInRole("Student")||User.IsInRole("Admin")))
                      {
                          <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="Student" asp-controller="Home" asp-action="MessageBoard">Message Board</a><!--Make the action for this-->
+                            <a class="nav-link text-dark" asp-area="Student" asp-controller="Message" asp-action="MessageBoard">Message Board</a><!--Make the action for this-->
                          </li>
                      }
                 </ul>

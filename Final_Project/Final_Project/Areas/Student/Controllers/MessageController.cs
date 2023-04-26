@@ -2,15 +2,27 @@
 using Final_Project.Areas.Student.Models.ViewModels;
 using Final_Project.Migrations;
 using Final_Project.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Final_Project.Areas.Student.Controllers
 {
+    [Area("Student")]
+
+    [Authorize(Roles = "Student, Admin")]
     public class MessageController : Controller
     {
         private SiteContext _siteContext;
-        private Repository<Message> data { get; set; }
-        public MessageController(SiteContext ctx) => data = new Repository<Message>(ctx);
+        private List<Message>messages= new List<Message>();
+        //private Repository<Message> data { get; set; }
+        public MessageController(SiteContext ctx)
+        {
+            _siteContext = ctx;
+            messages = _siteContext.Messages
+                    .OrderBy(c => c.id)
+                    .ToList();
+        }
         public IActionResult Index()
         {
             return RedirectToAction("MessageBoard");
@@ -24,7 +36,7 @@ namespace Final_Project.Areas.Student.Controllers
             
             return View(messages);
         }
-        public async Task<IActionResult> MessageBoard()
+        public IActionResult MessageBoard()
         {
             List<Message> messages;
             messages = _siteContext.Messages

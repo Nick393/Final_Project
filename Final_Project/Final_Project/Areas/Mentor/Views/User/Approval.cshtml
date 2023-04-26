@@ -11,7 +11,7 @@
 
 <table class="table table-bordered table-striped table-sm">
     <thead>
-        <tr><th>Username</th><th>Roles</th><th></th><th></th><th></th></tr>
+        <tr><th>Username</th><th>Email</th><th>First Name</th><th>Last Name</th><th>Roles</th></tr>
     </thead>
     <tbody>
         
@@ -25,52 +25,86 @@
         {
         <tr>
             <td>@user.UserName</td>
+            <td>@user.Email</td>
+            <td>@user.FirstName</td>
+            <td>@user.LastName</td>
             <td>
                 @foreach (string roleName in user.RoleNames)
                 {
                     <div>@roleName</div>
                 }
             </td>
-            <td>
-                <form method="post" asp-action="Delete"
+            @if(!user.isRole("Student")&&!user.isRole("Admin"))
+                    {
+                         <td>
+                <form method="post" asp-action="AddToStudent"
                       asp-route-id="@user.Id">
                     <button type="submit" class="btn btn-primary">
-                        Delete User
+                        Approve User
                     </button>
                 </form>
             </td>
-            <td>
-                <form method="post" asp-action="AddToAdmin"
+                    }
+                    <td>
+                        <form method="post" asp-action="ChangePassword"
+                      asp-route-id="@user.Id">
+                            <button type="submit" class="btn btn-primary">
+                                Reset Password
+                            </button>
+                        </form>
+                    </td>
+                    @if (!user.isRole("Admin")&&user.isRole("Student"))
+                    {
+                        <td>
+                            <form method="post" asp-action="AddToAdmin"
                       asp-route-id="@user.Id">
                     <button type="submit" class="btn btn-primary">
-                        Add To Admin
+                        Promote To Admin
                     </button>
                 </form>
             </td>
+            }
+                    @if (user.isRole("Admin"))
+                    {
             <td>
                 <form method="post" asp-action="RemoveFromAdmin"
                       asp-route-id="@user.Id">
                     <button type="submit" class="btn btn-primary">
-                        Remove From Admin
+                        Demote to Student
                     </button>
                 </form>
             </td>
-            <td>
+                    }
+                    @if (!user.isRole("Student"))
+                    {
+           /* <td>
                 <form method="post" asp-action="AddToStudent"
                       asp-route-id="@user.Id">
                     <button type="submit" class="btn btn-primary">
                         Add To Student
                     </button>
                 </form>
-            </td>
+            </td>*/
+                    }
+                     @if (user.isRole("Student")&&!user.isRole("Admin"))
+                    {
             <td>
                 <form method="post" asp-action="RemoveFromStudent"
                       asp-route-id="@user.Id">
                     <button type="submit" class="btn btn-primary">
-                        Remove From Student
+                        Disable User
                     </button>
                 </form>
             </td>
+                    }
+                    <td>
+                        <form method="post" asp-action="Delete"
+                      asp-route-id="@user.Id">
+                            <button type="submit" class="btn btn-primary">
+                                Delete User
+                            </button>
+                        </form>
+                    </td>
         </tr>
         }
             

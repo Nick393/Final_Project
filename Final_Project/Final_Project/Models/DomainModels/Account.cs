@@ -16,5 +16,10 @@ namespace Final_Project.Models.DomainModels
 
         [NotMapped]
         public IList<string> RoleNames { get; set; } = null!;
+        public bool isRole(string roleName)
+        {
+            if(RoleNames.Contains(roleName)) return true;
+            return false;
+        }
     }
 }
