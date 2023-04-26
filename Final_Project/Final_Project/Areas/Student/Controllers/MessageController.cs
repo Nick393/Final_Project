@@ -14,7 +14,7 @@ namespace Final_Project.Areas.Student.Controllers
     public class MessageController : Controller
     {
         private SiteContext _siteContext;
-        private List<Message>messages= new List<Message>();
+        private List<Message> messages = new List<Message>();
         //private Repository<Message> data { get; set; }
         public MessageController(SiteContext ctx)
         {
@@ -23,10 +23,12 @@ namespace Final_Project.Areas.Student.Controllers
                     .OrderBy(c => c.id)
                     .ToList();
         }
+        [HttpGet]
         public IActionResult Index()
         {
             return RedirectToAction("MessageBoard");
         }
+        [HttpPost]
         public IActionResult PostMessage(PostMessageModel model)
         {
             List<Message> messages;
@@ -36,6 +38,7 @@ namespace Final_Project.Areas.Student.Controllers
             
             return View(messages);
         }
+        [HttpGet]
         public IActionResult MessageBoard()
         {
             List<Message> messages;
