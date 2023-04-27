@@ -5,6 +5,7 @@ using Final_Project.Areas.Student.Models.ViewModels;
 using Final_Project.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System.Data;
 
 namespace Final_Project.Areas.Student.Controllers
@@ -50,6 +51,7 @@ namespace Final_Project.Areas.Student.Controllers
                 Message message = new Message();
                 message.Title = model.Title;
                 message.id = model.id;
+                message.UserName = User.Identity?.Name ?? "";
                 message.Body = model.Body;
                 _siteContext.Messages.Add(message);
                 _siteContext.SaveChanges();
@@ -72,6 +74,29 @@ namespace Final_Project.Areas.Student.Controllers
             viewModel.Messages = messages;
             return View(viewModel);
             //return View(model);
+        }
+        /*[HttpPost]
+        public ViewResult Delete(int id)
+        {
+            foreach (Message message in _siteContext.Messages)
+            {
+                if(message.id==id)
+                {
+                    _siteContext.Remove(message);
+                    _siteContext.SaveChanges();
+                }
+            }
+            
+            return View("MessageBoard");
+        }*/
+
+        [HttpPost]
+        public IActionResult Delete(Message message)
+        {
+            _siteContext.Remove(message); 
+            _siteContext.SaveChanges();
+            
+            return RedirectToAction("MessageBoard");  
         }
 
     }

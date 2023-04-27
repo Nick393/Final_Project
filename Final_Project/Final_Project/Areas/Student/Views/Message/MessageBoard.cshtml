@@ -10,7 +10,7 @@
 
 <table class="table table-bordered table-striped table-sm">
     <thead>
-        <tr><th>Message</th><th>Action</th><th></th><th></th><th></th></tr>
+        <tr><th>Username</th><th>Title</th><th>Body</th><th></th><th></th></tr>
     </thead>
     <tbody>
     @if (Model.Messages.Count() == 0)
@@ -23,10 +23,22 @@
         @foreach (Message msg in Model.Messages)
         {
             <tr>
-            
+            <td>@msg.UserName</td>
             <td>@msg.Title</td>
             <td>@msg.Body</td>
-           </tr>
+                    
+                    @if (User.IsInRole("Admin") || msg.UserName == User.Identity?.Name)
+                    {
+                        <td>
+                            <form method="post" asp-action="Delete"
+                      asp-route-id="@msg">
+                                <button type="submit" class="btn btn-primary">
+                                    Delete Message
+                                </button>
+                            </form>
+                        </td>
+                    }
+                </tr>
         }
                 
     }
