@@ -24,8 +24,11 @@ namespace Final_Project.Migrations
 
             modelBuilder.Entity("Final_Project.Areas.Student.Models.DomainModels.Message", b =>
                 {
-                    b.Property<string>("id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("Body")
                         .IsRequired()
@@ -48,37 +51,37 @@ namespace Final_Project.Migrations
                     b.HasData(
                         new
                         {
-                            id = "1",
-                            Body = "Novel",
-                            Title = "novel",
+                            id = 1,
+                            Body = "Body1",
+                            Title = "Message5",
                             UserName = "Null"
                         },
                         new
                         {
-                            id = "2",
-                            Body = "Memoir",
-                            Title = "memoir",
+                            id = 2,
+                            Body = "Body2",
+                            Title = "Message4",
                             UserName = "Null"
                         },
                         new
                         {
-                            id = "3",
-                            Body = "Mystery",
-                            Title = "mystery",
+                            id = 3,
+                            Body = "Body3",
+                            Title = "Message3",
                             UserName = "Null"
                         },
                         new
                         {
-                            id = "4",
-                            Body = "Science Fiction",
-                            Title = "scifi",
+                            id = 4,
+                            Body = "Body4",
+                            Title = "Message2",
                             UserName = "Null"
                         },
                         new
                         {
-                            id = "5",
-                            Body = "History",
-                            Title = "history",
+                            id = 5,
+                            Body = "Body5",
+                            Title = "Message1",
                             UserName = "Null"
                         });
                 });

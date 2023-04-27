@@ -10,11 +10,11 @@ namespace Final_Project.Areas.Student.Models.DataLayer.Configuration
         {
             // seed initial data
             entity.HasData(
-                new { Title = "novel", Body = "Novel", id = "1",UserName="Null" },
-                new { Title = "memoir", Body = "Memoir",id = "2", UserName = "Null" },
-                new { Title = "mystery", Body = "Mystery",id = "3", UserName = "Null" },
-                new { Title = "scifi", Body = "Science Fiction", id = "4", UserName = "Null" },
-                new { Title = "history", Body = "History",id="5", UserName = "Null" }
+                new { Title = "Message5", Body = "Body1", id = 1,UserName="Null" },
+                new { Title = "Message4", Body = "Body2",id = 2, UserName = "Null" },
+                new { Title = "Message3", Body = "Body3",id = 3, UserName = "Null" },
+                new { Title = "Message2", Body = "Body4", id = 4, UserName = "Null" },
+                new { Title = "Message1", Body = "Body5",id=5, UserName = "Null" }
             );
         }
 

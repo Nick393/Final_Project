@@ -6,7 +6,7 @@
 <h2>Post Message</h2>
 
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<form method="post" asp-action="Post">
+<form method="post" asp-action="PostMessage">
     <div class="row mb-2">
         <label class="col-form-label col-md-2">Title:</label>
         <div class="col-md-4">
@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col offset-md-2">
             <button type="submit" class="btn btn-primary">Post</button>
-            <a asp-action="MessageBoard" asp-controller="Home" class="btn btn-primary">Cancel</a>
+            <a asp-action="MessageBoard" asp-controller="Message" class="btn btn-primary">Cancel</a>
         </div>
     </div>
     </form>

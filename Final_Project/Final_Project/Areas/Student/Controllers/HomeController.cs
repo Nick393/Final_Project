@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Identity;
 using Final_Project.Areas.Student.Models.ViewModels;
 using Final_Project.Areas.Student.Models.DomainModels;
 using Final_Project.Areas.Mentor.Models;
-using Final_Project.Migrations;
 using Final_Project.Models;
+//using migrations
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Final_Project.Areas.Student.Controllers

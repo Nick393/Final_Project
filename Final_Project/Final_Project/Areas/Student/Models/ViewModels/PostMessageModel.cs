@@ -12,7 +12,7 @@ namespace Final_Project.Areas.Student.Models.ViewModels
         [StringLength(3000)]
         public string Body { get; set; } = string.Empty;
         public string UserName { get; set; }= string.Empty;
-        public string id { get; set; }=string.Empty;
+        public int id { get; set; }
 
 
     }

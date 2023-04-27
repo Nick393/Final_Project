@@ -1,6 +1,7 @@
 ﻿using Final_Project.Areas.Student.Models.DomainModels;
 using Final_Project.Areas.Student.Models.ViewModels;
-using Final_Project.Migrations;
+
+//using migrations
 using Final_Project.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -28,25 +29,48 @@ namespace Final_Project.Areas.Student.Controllers
         {
             return RedirectToAction("MessageBoard");
         }
+        [HttpGet]
+        public IActionResult PostMessage()
+        {
+            PostMessageModel model = new PostMessageModel();
+            return View(model);
+        }
         [HttpPost]
         public IActionResult PostMessage(PostMessageModel model)
         {
-            List<Message> messages;
+            /*List<Message> messages;
+
             messages = _siteContext.Messages
                    .OrderBy(p => p.id).ToList();
+            MessageViewModel viewModel = new MessageViewModel();
+            viewModel.Messages = messages;*/
+
+            if (ModelState.IsValid)
+            {
+                Message message = new Message();
+                message.Title = model.Title;
+                message.id = model.id;
+                message.Body = model.Body;
+                _siteContext.Messages.Add(message);
+                _siteContext.SaveChanges();
+                return RedirectToAction("MessageBoard");
+            }
+            else
+            {
+                return View("error");
+            }
 
             
-            return View(messages);
         }
-        [HttpGet]
+         [HttpGet]
         public IActionResult MessageBoard()
         {
             List<Message> messages;
             messages = _siteContext.Messages
                    .OrderBy(p => p.id).ToList();
-
-
-            return View(messages);
+            MessageViewModel viewModel = new MessageViewModel();
+            viewModel.Messages = messages;
+            return View(viewModel);
             //return View(model);
         }
 
