@@ -51,35 +51,42 @@ namespace Final_Project.Migrations
                     b.HasData(
                         new
                         {
-                            id = 1,
+                            id = -6,
                             Body = "Body1",
                             Title = "Message5",
                             UserName = "Null"
                         },
                         new
                         {
-                            id = 2,
+                            id = -1,
+                            Body = "Body1",
+                            Title = "Message5",
+                            UserName = "Null"
+                        },
+                        new
+                        {
+                            id = -2,
                             Body = "Body2",
                             Title = "Message4",
                             UserName = "Null"
                         },
                         new
                         {
-                            id = 3,
+                            id = -3,
                             Body = "Body3",
                             Title = "Message3",
                             UserName = "Null"
                         },
                         new
                         {
-                            id = 4,
+                            id = -4,
                             Body = "Body4",
                             Title = "Message2",
                             UserName = "Null"
                         },
                         new
                         {
-                            id = 5,
+                            id = -5,
                             Body = "Body5",
                             Title = "Message1",
                             UserName = "Null"

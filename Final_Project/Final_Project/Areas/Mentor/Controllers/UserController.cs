@@ -162,13 +162,28 @@ namespace Final_Project.Areas.Mentor.Controllers
             return RedirectToAction("Approval");
         }
         [HttpGet]
+        public RedirectToActionResult ChangePassword(string id)
+        {
+            foreach (Account Acct in userManager.Users)
+            {
+                if (Acct.Id == id)
+                {
+                    Acct.PasswordHash = null ;
+                    
+                        Acct.RoleNames = null ;
+                    
+                }
+            }
+            return RedirectToAction("Approval");
+        }
+       /* [HttpGet]
         public async Task<IActionResult> ChangePassword(string name)
         {
             Account user = await userManager.FindByNameAsync(name);
             var model = new Final_Project.Areas.Mentor.Models.ViewModels.ChangePasswordViewModel
             {
 
-                 Username = user.UserName
+                Username = user.UserName
                 //Username = User.Identity?.Name ?? ""
 
                 //Massive Bugger! accounts must still be signed in for this to work properly/text for details
@@ -178,13 +193,13 @@ namespace Final_Project.Areas.Mentor.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangePassword(Final_Project.Areas.Mentor.Models.ViewModels.ChangePasswordViewModel model)
+        public async Task<IActionResult> ChangePassword(string id)
         {
 
              if (ModelState.IsValid)
              {
             
-                Account user = await userManager.FindByNameAsync(model.Username);
+                Account user = await userManager.FindByIdAsync(id);
                 string resetToken = await userManager.GeneratePasswordResetTokenAsync(user);
                 IdentityResult passwordChangeResult = await userManager.ResetPasswordAsync(user, resetToken, model.NewPassword);
             
@@ -200,6 +215,6 @@ namespace Final_Project.Areas.Mentor.Controllers
                  
             }
             return View(model);
-        }
+        }*/
     }
 }

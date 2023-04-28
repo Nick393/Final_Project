@@ -91,9 +91,19 @@ namespace Final_Project.Areas.Student.Controllers
         }*/
 
         [HttpPost]
-        public IActionResult Delete(Message message)
+        public RedirectToActionResult Delete(int id)
         {
-            _siteContext.Remove(message); 
+            foreach (Message message in _siteContext.Messages)
+            {
+                if(message.id==id)
+                {
+                    _siteContext.Messages.Remove(message);
+                }
+            }
+            
+            
+            //_siteContext.Messages.Remove(message); 
+            
             _siteContext.SaveChanges();
             
             return RedirectToAction("MessageBoard");  
