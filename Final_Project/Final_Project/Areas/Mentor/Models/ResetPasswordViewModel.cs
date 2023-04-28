@@ -3,11 +3,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Final_Project.Areas.Mentor.Models.ViewModels
 {
-    public class ChangePasswordViewModel
+    public class ResetPasswordViewModel
     {
         public string Username { get; set; } = string.Empty;
-
-        
 
         [Required(ErrorMessage = "Please enter your new password.")]
         [DataType(DataType.Password)]
@@ -18,7 +16,7 @@ namespace Final_Project.Areas.Mentor.Models.ViewModels
         [DataType(DataType.Password)]
         [Display(Name = "Confirm Password")]
         public string ConfirmPassword { get; set; } = string.Empty;
-        
-       
+
+        public Account user { get; set; } = null!;
     }
 }

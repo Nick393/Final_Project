@@ -6,6 +6,7 @@ using Final_Project.Models.DomainModels;
 
 using Final_Project.Models.ViewModels;
 using Final_Project.Areas.Mentor.Models;
+using Final_Project.Areas.Mentor.Models.ViewModels;
 
 namespace Final_Project.Areas.Mentor.Controllers
 {
@@ -161,7 +162,7 @@ namespace Final_Project.Areas.Mentor.Controllers
             if (result.Succeeded) { }
             return RedirectToAction("Approval");
         }
-        [HttpGet]
+        /*[HttpGet]
         public RedirectToActionResult ChangePassword(string id)
         {
             foreach (Account Acct in userManager.Users)
@@ -175,15 +176,24 @@ namespace Final_Project.Areas.Mentor.Controllers
                 }
             }
             return RedirectToAction("Approval");
-        }
-       /* [HttpGet]
-        public async Task<IActionResult> ChangePassword(string name)
+        }*/
+        [HttpGet]
+        public IActionResult ResetPassword(string userName)
         {
-            Account user = await userManager.FindByNameAsync(name);
-            var model = new Final_Project.Areas.Mentor.Models.ViewModels.ChangePasswordViewModel
+            Account[] users = userManager.Users.ToArray() ;
+            Account user = new Account();
+            foreach (Account userNumber in users)
+            {
+                if (userNumber.UserName == userName)
+                {
+                    user = userNumber;
+                }
+            }
+            var model = new Final_Project.Areas.Mentor.Models.ViewModels.ResetPasswordViewModel
             {
 
-                Username = user.UserName
+                user = user,
+                Username = user.UserName,
                 //Username = User.Identity?.Name ?? ""
 
                 //Massive Bugger! accounts must still be signed in for this to work properly/text for details
@@ -193,28 +203,16 @@ namespace Final_Project.Areas.Mentor.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangePassword(string id)
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
         {
-
              if (ModelState.IsValid)
              {
-            
-                Account user = await userManager.FindByIdAsync(id);
-                string resetToken = await userManager.GeneratePasswordResetTokenAsync(user);
-                IdentityResult passwordChangeResult = await userManager.ResetPasswordAsync(user, resetToken, model.NewPassword);
-            
-
-                 
-                 
-                     TempData["message"] = "Password changed successfully";
-                     return RedirectToAction("Approval");
-                 
-                 
-                 
-                    
-                 
+                string resetToken = await userManager.GeneratePasswordResetTokenAsync(model.user);
+                IdentityResult passwordChangeResult = await userManager.ResetPasswordAsync(model.user, resetToken, model.NewPassword);
+                TempData["message"] = "Password changed successfully";
+                return RedirectToAction("Approval");
             }
             return View(model);
-        }*/
+        }
     }
 }
