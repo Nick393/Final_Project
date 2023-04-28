@@ -7,6 +7,7 @@ using Final_Project.Models.DomainModels;
 using Final_Project.Models.ViewModels;
 using Final_Project.Areas.Mentor.Models;
 using Final_Project.Areas.Mentor.Models.ViewModels;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Final_Project.Areas.Mentor.Controllers
 {
@@ -178,22 +179,42 @@ namespace Final_Project.Areas.Mentor.Controllers
             return RedirectToAction("Approval");
         }*/
         [HttpGet]
-        public IActionResult ResetPassword(string userName)
+        public async Task <IActionResult> ResetPassword(string Username)
         {
-            Account[] users = userManager.Users.ToArray() ;
+            var acc=await userManager.FindByNameAsync(Username);
+            if(acc.UserName == null) {
+                return RedirectToAction("AHHHHH");
+            }
+            //AHHHHHHHH its broken
+            else
+            {
+                return RedirectToAction(acc.UserName);
+            }
+           /* Account ac=await userManager.FindByNameAsync(userName);
             Account user = new Account();
-            foreach (Account userNumber in users)
+            user.UserName= User.UserName;
+            Account[] users = userManager.Users.ToArray() ;
+            IQueryable queryable = userManager.Users;
+            foreach (Account account in queryable)
+            {
+                if (account.UserName == userName)
+                {
+                    user=account; break;
+                }
+            }*/
+            
+            /*foreach (Account userNumber in users)
             {
                 if (userNumber.UserName == userName)
                 {
                     user = userNumber;
                 }
-            }
+            }*/
             var model = new Final_Project.Areas.Mentor.Models.ViewModels.ResetPasswordViewModel
             {
 
-                user = user,
-                Username = user.UserName,
+                user=acc,
+                Username = acc.UserName,
                 //Username = User.Identity?.Name ?? ""
 
                 //Massive Bugger! accounts must still be signed in for this to work properly/text for details
