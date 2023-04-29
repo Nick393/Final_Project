@@ -179,30 +179,31 @@ namespace Final_Project.Areas.Mentor.Controllers
             return RedirectToAction("Approval");
         }*/
         [HttpGet]
-        public async Task <IActionResult> ResetPassword(string Username)
+        public async Task <IActionResult> ResetPassword(string Id)
         {
-            var acc=await userManager.FindByNameAsync(Username);
-            if(acc.UserName == null) {
-                return RedirectToAction("AHHHHH");
-            }
-            //AHHHHHHHH its broken
-            else
+            if(Id== null)
             {
-                return RedirectToAction(acc.UserName);
+                return RedirectToAction("FFFFFF");
             }
-           /* Account ac=await userManager.FindByNameAsync(userName);
-            Account user = new Account();
-            user.UserName= User.UserName;
-            Account[] users = userManager.Users.ToArray() ;
-            IQueryable queryable = userManager.Users;
-            foreach (Account account in queryable)
-            {
-                if (account.UserName == userName)
-                {
-                    user=account; break;
-                }
-            }*/
-            
+            var acc=await userManager.FindByIdAsync(Id);
+            if(acc.Id == null) {
+                return RedirectToAction("error");
+            }
+            //AHHHHHHHH its broken 
+
+            /* Account ac=await userManager.FindByNameAsync(userName);
+             Account user = new Account();
+             user.UserName= User.UserName;
+             Account[] users = userManager.Users.ToArray() ;
+             IQueryable queryable = userManager.Users;
+             foreach (Account account in queryable)
+             {
+                 if (account.UserName == userName)
+                 {
+                     user=account; break;
+                 }
+             }*/
+
             /*foreach (Account userNumber in users)
             {
                 if (userNumber.UserName == userName)
@@ -210,30 +211,84 @@ namespace Final_Project.Areas.Mentor.Controllers
                     user = userNumber;
                 }
             }*/
+
             var model = new Final_Project.Areas.Mentor.Models.ViewModels.ResetPasswordViewModel
             {
 
-                user=acc,
-                Username = acc.UserName,
+                id = Id,
+                 Username= acc.UserName,
+                 user=acc
+                 
+
                 //Username = User.Identity?.Name ?? ""
 
                 //Massive Bugger! accounts must still be signed in for this to work properly/text for details
 
             };
+            model.user = acc;
             return View(model);
+            
         }
 
         [HttpPost]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
         {
-             if (ModelState.IsValid)
+             if (ModelState.IsValid)//Modelstate is not valid beacuse user is null
              {
                 string resetToken = await userManager.GeneratePasswordResetTokenAsync(model.user);
                 IdentityResult passwordChangeResult = await userManager.ResetPasswordAsync(model.user, resetToken, model.NewPassword);
                 TempData["message"] = "Password changed successfully";
                 return RedirectToAction("Approval");
             }
+            
             return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetPass(ResetPasswordViewModel model)
+        {
+
+            string err = "errors: ";
+            if (ModelState.IsValid)
+            {
+            
+                var user = await userManager.FindByIdAsync(model.id);
+                string resetToken = await userManager.GeneratePasswordResetTokenAsync(user);
+                var result = await userManager.ResetPasswordAsync(user, resetToken,model.NewPassword);
+
+                if (result.Succeeded)
+                {
+                    TempData["message"] = "Password changed successfully";
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    string errList = "ERRs: ";
+                    foreach (IdentityError error in result.Errors)
+                    {
+                        errList += error.Description;
+                        err += error.Description;
+                        ModelState.AddModelError("", error.Description);
+                        return View(error.Description);
+                    }
+                    return View(errList);
+                }
+            }
+            return View(err);
+            /*Account account = new Account();
+            
+            model.user = account;
+            if (ModelState.IsValid)
+            {
+                string resetToken = await userManager.GeneratePasswordResetTokenAsync(model.user);
+                IdentityResult passwordChangeResult = await userManager.ResetPasswordAsync(model.user, resetToken, model.NewPassword);
+                TempData["message"] = "Password changed successfully";
+                return RedirectToAction("Approval");
+            }
+            else
+            {
+                
+            }
+            return RedirectToAction(model.Username);*/
         }
     }
 }

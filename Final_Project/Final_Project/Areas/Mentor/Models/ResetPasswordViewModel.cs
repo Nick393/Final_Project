@@ -5,6 +5,7 @@ namespace Final_Project.Areas.Mentor.Models.ViewModels
 {
     public class ResetPasswordViewModel
     {
+       
         public string Username { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Please enter your new password.")]
@@ -18,5 +19,7 @@ namespace Final_Project.Areas.Mentor.Models.ViewModels
         public string ConfirmPassword { get; set; } = string.Empty;
 
         public Account user { get; set; } = null!;
+
+        public string id { get; set; } =string.Empty;
     }
 }
