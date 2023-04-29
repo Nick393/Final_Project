@@ -215,7 +215,7 @@ namespace Final_Project.Areas.Mentor.Controllers
             var model = new Final_Project.Areas.Mentor.Models.ViewModels.ResetPasswordViewModel
             {
 
-                id = Id,
+                id = acc.Id,
                  Username= acc.UserName,
                  user=acc
                  
@@ -225,7 +225,7 @@ namespace Final_Project.Areas.Mentor.Controllers
                 //Massive Bugger! accounts must still be signed in for this to work properly/text for details
 
             };
-            model.user = acc;
+            //model.user = acc;
             return View(model);
             
         }
@@ -233,14 +233,32 @@ namespace Final_Project.Areas.Mentor.Controllers
         [HttpPost]
         public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
         {
-             if (ModelState.IsValid)//Modelstate is not valid beacuse user is null
-             {
-                string resetToken = await userManager.GeneratePasswordResetTokenAsync(model.user);
-                IdentityResult passwordChangeResult = await userManager.ResetPasswordAsync(model.user, resetToken, model.NewPassword);
-                TempData["message"] = "Password changed successfully";
-                return RedirectToAction("Approval");
-            }
+            // Account acct = new Account();
+            /* acct.UserName = model.Username;
+             acct.Id = model.id;
+            var pass = model.NewPassword;
+             model.NewPassword = pass;
+             model.Username=acct.UserName;
+             model.id = acct.Id;
+             model.user=acct;*/
+            model.user = await userManager.FindByIdAsync(model.id);
             
+            
+                if (ModelState.ErrorCount<2)//Modelstate appears to be evaluated upon button click.
+                                            //one error is expected
+                //due to setting of user property above in this method
+                {
+                    //this works  
+                    string resetToken = await userManager.GeneratePasswordResetTokenAsync(model.user);
+                    IdentityResult passwordChangeResult = await userManager.ResetPasswordAsync(model.user, resetToken, model.NewPassword);
+                    TempData["message"] = "Password changed successfully";
+                    return RedirectToAction("Approval");
+                }
+            
+            /*if(model.Username==null)
+            {
+                return RedirectToAction("false");
+            }*/
             return View(model);
         }
         [HttpPost]
@@ -252,8 +270,8 @@ namespace Final_Project.Areas.Mentor.Controllers
             {
             
                 var user = await userManager.FindByIdAsync(model.id);
-                string resetToken = await userManager.GeneratePasswordResetTokenAsync(user);
-                var result = await userManager.ResetPasswordAsync(user, resetToken,model.NewPassword);
+                string resetToken = await userManager.GeneratePasswordResetTokenAsync(model.user);
+                var result = await userManager.ResetPasswordAsync(model.user, resetToken,model.NewPassword);
 
                 if (result.Succeeded)
                 {
