@@ -101,6 +101,11 @@ namespace Final_Project.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
                     b.Property<string>("name")
                         .IsRequired()
                         .HasMaxLength(3000)
@@ -119,30 +124,35 @@ namespace Final_Project.Migrations
                         new
                         {
                             id = 1,
+                            description = "an FRC team",
                             name = "Test1",
                             number = "6419"
                         },
                         new
                         {
                             id = 2,
+                            description = "an FTC team",
                             name = "Test2",
                             number = "Testc"
                         },
                         new
                         {
                             id = 3,
+                            description = "an FTC team",
                             name = "Test3",
                             number = "Testb"
                         },
                         new
                         {
                             id = 4,
+                            description = "an FTC team",
                             name = "Test4",
                             number = "Testa"
                         },
                         new
                         {
                             id = 5,
+                            description = "an FTC team",
                             name = "Test5",
                             number = "Test"
                         });

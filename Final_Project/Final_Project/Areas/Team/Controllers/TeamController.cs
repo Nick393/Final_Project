@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Final_Project.Areas.Team.Models.DomainModels;
 using Final_Project.Areas.Student.Models.ViewModels;
 using Final_Project.Areas.Team.Models;
+using Final_Project.Areas.Team.Models.ViewModels;
 
 namespace Final_Project.Areas.Team.Controllers
 {
@@ -31,6 +32,66 @@ namespace Final_Project.Areas.Team.Controllers
             viewModel.teams =teams ;
             return View(viewModel);
             //return View(model);
+        }
+        [HttpPost]
+        public RedirectToActionResult Delete(int id)
+        {
+            foreach (Models.DomainModels.Team team in _siteContext.Teams)
+            {
+                if (team.id == id)
+                {
+                    _siteContext.Teams.Remove(team);
+                }
+            }
+
+
+            //_siteContext.Messages.Remove(message); 
+
+            _siteContext.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult AddTeam()
+        {
+            AddTeamModel model = new AddTeamModel();
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult AddTeam(AddTeamModel model)
+        {
+           
+
+            if (ModelState.IsValid)
+            {
+                Models.DomainModels.Team team = new Models.DomainModels.Team();
+                team.number = model.Number;
+                team.name = model.Name;
+                //team.id = model.;
+                team.description = model.Description;
+                
+                _siteContext.Teams.Add(team);
+                _siteContext.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View(model);
+            }
+
+
+        }
+        public IActionResult Team(int id)
+        {
+            foreach (Final_Project.Areas.Team.Models.DomainModels.Team team in _siteContext.Teams)
+            {
+
+                if (team.id == id)
+                {
+                    return View(team);
+                }
+            }
+            return View();
         }
     }
 }

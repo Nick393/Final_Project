@@ -29,6 +29,7 @@
     <Folder Include="Areas\Student\Views\Shared\" />
     <Folder Include="Areas\Team\Data\" />
     <Folder Include="Areas\Team\Models\Models\" />
+    <Folder Include="Content\Images\Uploads\" />
   </ItemGroup>
 
   <ItemGroup>

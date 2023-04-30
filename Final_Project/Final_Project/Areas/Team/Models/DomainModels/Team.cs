@@ -11,6 +11,9 @@ namespace Final_Project.Areas.Team.Models.DomainModels
         [Required(ErrorMessage = "Please enter a team name")]
         [StringLength(3000)]
         public string name { get; set; } = string.Empty;
+        [Required(ErrorMessage = "Please enter a short team descrption or slogan")]
+        [StringLength(3000)]
+        public string description { get; set; }= string.Empty;
         [Key]
         public int id { get; set; }
         
