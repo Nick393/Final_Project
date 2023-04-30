@@ -93,6 +93,61 @@ namespace Final_Project.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Final_Project.Areas.Team.Models.DomainModels.Team", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
+                    b.Property<string>("number")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Teams");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            name = "Test1",
+                            number = "6419"
+                        },
+                        new
+                        {
+                            id = 2,
+                            name = "Test2",
+                            number = "Testc"
+                        },
+                        new
+                        {
+                            id = 3,
+                            name = "Test3",
+                            number = "Testb"
+                        },
+                        new
+                        {
+                            id = 4,
+                            name = "Test4",
+                            number = "Testa"
+                        },
+                        new
+                        {
+                            id = 5,
+                            name = "Test5",
+                            number = "Test"
+                        });
+                });
+
             modelBuilder.Entity("Final_Project.Models.DomainModels.Account", b =>
                 {
                     b.Property<string>("Id")

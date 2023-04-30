@@ -1,0 +1,52 @@
+﻿@using Final_Project.Models.DomainModels;
+@using Final_Project.Areas.Team.Models.DomainModels
+@model Final_Project.Areas.Team.Models.TeamsModel
+@using Final_Project.Areas.Mentor.Controllers;
+@{
+    ViewData["Title"] = " | Teams";
+}
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<h1 class="mb-2">Teams</h1>
+
+
+
+<table class="table table-bordered table-striped table-sm">
+    <thead>
+        <tr><th>Number</th><th>Name</th><th>Details</th><th></th><th></th></tr>
+    </thead>
+    <tbody>
+
+        @if (Model.teams.Count() == 0)
+        {
+            <tr><td colspan="5">There are no Teams</td></tr>
+        }
+        else
+        {
+
+            @foreach (Team team in Model.teams)
+            {
+                <tr>
+                    <td>@team.number</td>
+                    <td>@team.name</td>
+                    
+                    
+                    
+                        <td>
+                            <form method="post" asp-action="Details"
+                      asp-route-id="@team.id">
+                                <button type="submit" class="btn btn-primary">
+                                    Details
+                                </button>
+                            </form>
+                        </td>
+                    }
+                    
+                </tr>
+            }
+
+        }
+
+    </tbody>
+</table>
+
+

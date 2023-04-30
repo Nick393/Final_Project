@@ -16,7 +16,7 @@ namespace Final_Project.Areas.Student.Controllers
     public class MessageController : Controller
     {
         private SiteContext _siteContext;
-        private List<Message> messages = new List<Message>();
+        private List<Models.DomainModels.Message> messages = new List<Models.DomainModels.Message>();
         //private Repository<Message> data { get; set; }
         public MessageController(SiteContext ctx)
         {
@@ -48,7 +48,7 @@ namespace Final_Project.Areas.Student.Controllers
 
             if (ModelState.IsValid)
             {
-                Message message = new Message();
+                Models.DomainModels.Message message = new Models.DomainModels.Message();
                 message.Title = model.Title;
                 message.id = model.id;
                 message.UserName = User.Identity?.Name ?? "";
@@ -67,7 +67,7 @@ namespace Final_Project.Areas.Student.Controllers
          [HttpGet]
         public IActionResult MessageBoard()
         {
-            List<Message> messages;
+            List<Models.DomainModels.Message> messages;
             messages = _siteContext.Messages
                    .OrderBy(p => p.id).ToList();
             MessageViewModel viewModel = new MessageViewModel();
@@ -93,9 +93,9 @@ namespace Final_Project.Areas.Student.Controllers
         [HttpPost]
         public RedirectToActionResult Delete(int id)
         {
-            foreach (Message message in _siteContext.Messages)
+            foreach (Models.DomainModels.Message message in _siteContext.Messages)
             {
-                if(message.id==id)
+                if(message.id == id)
                 {
                     _siteContext.Messages.Remove(message);
                 }

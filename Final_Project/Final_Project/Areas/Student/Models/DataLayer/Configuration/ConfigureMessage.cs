@@ -4,9 +4,9 @@ using Final_Project.Areas.Student.Models.DomainModels;
 
 namespace Final_Project.Areas.Student.Models.DataLayer.Configuration
 {
-    public class ConfigureMessage : IEntityTypeConfiguration<Message>
+    public class ConfigureMessage : IEntityTypeConfiguration<DomainModels.Message>
     {
-        public void Configure(EntityTypeBuilder<Message> entity)
+        public void Configure(EntityTypeBuilder<DomainModels.Message> entity)
         {
             // seed initial data
             entity.HasData(
