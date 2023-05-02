@@ -1,25 +1,29 @@
 ﻿@using Final_Project.Areas.Student.Models.DomainModels;
 @model Final_Project.Areas.Student.Models.DomainModels.Message
-
-<h1>@Model.Title</h1>
+<div class="row">
+    <a asp-action="returnToLast" asp-controller="Message" asp-route-id="@Model.ParentID" class="btn btn-primary">Back</a>
+    <h1 class="align-content-center">@Model.Title</h1>
+</div>
 <div>
 </div>
-<p>@Model.UserName</p>
+<p>Posted by: @Model.UserName</p>
 <div>
 </div>
 <p>@Model.Body</p>
 <div>
 </div>
-<form method="post" asp-action="ReplyMessage"
-                      asp-route-id="@Model.id">
-                                <button type="submit" class="btn btn-primary">
-                                    Post Reply
-                                </button>
-                            </form>
+
                             <h2>Replies</h2>
+<form method="post" asp-action="ReplyMessage"
+      asp-route-id="@Model.id">
+    <button type="submit" class="btn btn-primary">
+        Post Reply
+    </button>
+</form>
+<h6></h6>
 <table class="table table-bordered table-striped table-sm">
     <thead>
-        <tr><th>Username</th><th>Title</th><th></th><th></th><th></th></tr>
+        <tr><th>Username</th><th>Message</th><th></th><th></th><th></th></tr>
     </thead>
     <tbody>
         @if (Model.Replies.Count() == 0)
@@ -31,16 +35,31 @@
              
         @foreach (Message msg in Model.Replies)
         {
+            
             <tr>
             <td>@msg.UserName</td>
             <td>@msg.Title</td>
+            @if(msg.Replies.Count()>0)
+            {
             <td><form method="post" asp-action="Message"
                       asp-route-id="@msg.id">
                                 <button type="submit" class="btn btn-primary">
-                                    Open Message
+                                    View Replies (@msg.Replies.Count())
                                 </button>
                             </form></td>
-                            @if (User.IsInRole("Admin") || msg.UserName == User.Identity?.Name)
+            }
+            else
+            {
+                <td>
+            <form method="post" asp-action="ReplyMessage"
+            asp-route-id="@msg.id">
+             <button type="submit" class="btn btn-primary">
+                                Post Reply
+                            </button>
+                        </form>
+                        </td>
+            }
+                    @if (User.IsInRole("Admin") || msg.UserName == User.Identity?.Name)
                     {
                             <td><form method="post" asp-action="Delete"
                       asp-route-id="@msg.id">
@@ -50,7 +69,8 @@
                             </form></td>
                     }
                             </tr>
+        
         }
         }</tbody>
         </table>
-<a asp-action="returnToLast" asp-controller="Message" asp-route-id="@Model.ParentID" class="btn btn-primary">Back</a>
+

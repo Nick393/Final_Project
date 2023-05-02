@@ -146,7 +146,7 @@ namespace Final_Project.Areas.Student.Controllers
                 message.Title = model.Title;
                 //message.id = model.id;
                 message.UserName = User.Identity?.Name ?? "";
-                message.Body = model.Body;
+                message.Body = "";
                 message.Replies = model.Replies;
                 message.isReply = true;
                 foreach (Models.DomainModels.Message msg in _siteContext.Messages)

@@ -44,6 +44,15 @@
             <span asp-validation-for="Phone" class="text-danger"></span>
         </div>
     </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">What are you volunteering for?:</label>
+        <div class="col-md-4">
+            <input asp-for="Reason" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="Reason" class="text-danger"></span>
+        </div>
+    </div>
     <div class="row">
         <div class="col offset-md-2">
             <button type="submit" class="btn btn-primary">Submit</button>

@@ -59,6 +59,23 @@
           }
         }
       },
+      "libphonenumber-csharp/8.13.11": {
+        "type": "package",
+        "dependencies": {
+          "System.Collections.Immutable": "7.0.0",
+          "System.IO.Compression": "4.3.0"
+        },
+        "compile": {
+          "lib/net7.0/PhoneNumbers.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net7.0/PhoneNumbers.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/7.0.5": {
         "type": "package",
         "compile": {
@@ -2242,23 +2259,20 @@
           "lib/netstandard1.3/System.Collections.Concurrent.dll": {}
         }
       },
-      "System.Collections.Immutable/6.0.0": {
+      "System.Collections.Immutable/7.0.0": {
         "type": "package",
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
         "compile": {
-          "lib/net6.0/System.Collections.Immutable.dll": {
+          "lib/net7.0/System.Collections.Immutable.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.Collections.Immutable.dll": {
+          "lib/net7.0/System.Collections.Immutable.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "System.Composition/6.0.0": {
@@ -3804,6 +3818,24 @@
         "lib/netstandard2.0/Humanizer.dll",
         "lib/netstandard2.0/Humanizer.xml",
         "logo.png"
+      ]
+    },
+    "libphonenumber-csharp/8.13.11": {
+      "sha512": "E/gVNEMGbzEr6UeRw1XB3pQKO8rrtxrpK6nYoAOi86KSGKcOZk9HgMOXkSPiWh0RUCVmNMJXMyWSKAM4J4w8eA==",
+      "type": "package",
+      "path": "libphonenumber-csharp/8.13.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net6.0/PhoneNumbers.dll",
+        "lib/net6.0/PhoneNumbers.xml",
+        "lib/net7.0/PhoneNumbers.dll",
+        "lib/net7.0/PhoneNumbers.xml",
+        "lib/netstandard2.0/PhoneNumbers.dll",
+        "lib/netstandard2.0/PhoneNumbers.xml",
+        "libphonenumber-csharp.8.13.11.nupkg.sha512",
+        "libphonenumber-csharp.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Cryptography.Internal/7.0.5": {
@@ -7137,25 +7169,30 @@
         "system.collections.concurrent.nuspec"
       ]
     },
-    "System.Collections.Immutable/6.0.0": {
-      "sha512": "l4zZJ1WU2hqpQQHXz1rvC3etVZN+2DLmQMO79FhOTZHMn8tDRr+WU287sbomD0BETlmKDn0ygUgVy9k5xkkJdA==",
+    "System.Collections.Immutable/7.0.0": {
+      "sha512": "dQPcs0U1IKnBdRDBkrCTi1FoajSTBzLcVTpjO4MBCMC7f4pDOIPzgBoX8JjG7X6uZRJ8EBxsi8+DR1JuwjnzOQ==",
       "type": "package",
-      "path": "system.collections.immutable/6.0.0",
+      "path": "system.collections.immutable/7.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "LICENSE.TXT",
+        "README.md",
         "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Collections.Immutable.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
         "buildTransitive/netcoreapp2.0/System.Collections.Immutable.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.Collections.Immutable.dll",
-        "lib/net461/System.Collections.Immutable.xml",
+        "lib/net462/System.Collections.Immutable.dll",
+        "lib/net462/System.Collections.Immutable.xml",
         "lib/net6.0/System.Collections.Immutable.dll",
         "lib/net6.0/System.Collections.Immutable.xml",
+        "lib/net7.0/System.Collections.Immutable.dll",
+        "lib/net7.0/System.Collections.Immutable.xml",
         "lib/netstandard2.0/System.Collections.Immutable.dll",
         "lib/netstandard2.0/System.Collections.Immutable.xml",
-        "system.collections.immutable.6.0.0.nupkg.sha512",
+        "system.collections.immutable.7.0.0.nupkg.sha512",
         "system.collections.immutable.nuspec",
         "useSharedDesignerContext.txt"
       ]
@@ -10886,6 +10923,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.5",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 7.0.6",
+      "libphonenumber-csharp >= 8.13.11",
       "popper.js >= 1.16.1"
     ]
   },
@@ -10955,6 +10993,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[7.0.6, )"
+          },
+          "libphonenumber-csharp": {
+            "target": "Package",
+            "version": "[8.13.11, )"
           },
           "popper.js": {
             "target": "Package",

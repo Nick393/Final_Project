@@ -35,6 +35,7 @@ namespace Final_Project.Areas.VolunteerRequest.Controllers
                 model.FirstName = Model.FirstName;
                 model.LastName = Model.LastName;
                 model.Email = Model.Email;
+                model.Reason = Model.Reason;
                 
                 
 

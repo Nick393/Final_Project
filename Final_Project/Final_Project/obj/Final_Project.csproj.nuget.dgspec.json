@@ -67,6 +67,10 @@
               "target": "Package",
               "version": "[7.0.6, )"
             },
+            "libphonenumber-csharp": {
+              "target": "Package",
+              "version": "[8.13.11, )"
+            },
             "popper.js": {
               "target": "Package",
               "version": "[1.16.1, )"

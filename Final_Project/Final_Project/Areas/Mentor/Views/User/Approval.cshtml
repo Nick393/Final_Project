@@ -119,7 +119,7 @@
 
 <table class="table table-bordered table-striped table-sm">
     <thead>
-        <tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th><th></th></tr>
+        <tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th><th>Reason/event/skill</th></tr>
     </thead>
     <tbody>
         @if(Model.requests.Count()==0)
@@ -134,6 +134,7 @@
             <td>@request.LastName</td>
             <td>@request.Email</td>
             <td>@request.Phone</td>
+            <td colspan="3">@request.Reason</td>
                     <td>
                         <form method="post" asp-action="Resolve"
                       asp-route-id="@request.id">

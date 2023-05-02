@@ -236,6 +236,10 @@ namespace Final_Project.Migrations
                         .HasMaxLength(3000)
                         .HasColumnType("nvarchar(3000)");
 
+                    b.Property<string>("Reason")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("id");
 
                     b.ToTable("VolReqs");
