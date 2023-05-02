@@ -1,0 +1,36 @@
+﻿@model Final_Project.Areas.Student.Models.ViewModels.ReplyMessageModel
+@{
+    ViewBag.Title = "Post Reply";
+}
+
+<h2>Post Reply</h2>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form method="post" asp-action="ReplyMessage">
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Title:</label>
+        <div class="col-md-4">
+
+            <input asp-for="Title" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="Title" class="text-danger"></span>
+        </div>
+    </div>
+    <input type="hidden" asp-for="ParentId" />
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Body:</label>
+        <div class="col-md-4">
+            <textarea asp-for="Body" class="form-control" rows="6" cols="6"></textarea>
+        </div>
+        <div class="col">
+            <span asp-validation-for="Body" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col offset-md-2">
+            <button type="submit" class="btn btn-primary">Post</button>
+            <a asp-action="MessageBoard" asp-controller="Message" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+    </form>

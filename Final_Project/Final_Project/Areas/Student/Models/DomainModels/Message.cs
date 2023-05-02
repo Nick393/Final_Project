@@ -14,5 +14,8 @@ namespace Final_Project.Areas.Student.Models.DomainModels
         [Key]
         public int id { get; set; }
         public string UserName { get; set; }=string.Empty;
+       public bool isReply { get; set; }
+        public int ParentID { get; set; }
+        public List<Message> Replies { get; set; } = new List<Message>();
     }
 }

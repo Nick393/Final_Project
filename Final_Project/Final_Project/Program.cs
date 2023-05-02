@@ -62,6 +62,11 @@ app.MapAreaControllerRoute(
     areaName: "Team",
     pattern: "Team/{controller=Team}/{action=Index}/{id?}"
     );
+app.MapAreaControllerRoute(
+    name: "VolunteerRequest",
+    areaName: "VolunteerRequest",
+    pattern: "VolunteerRequest/{controller=Request}/{action=Request}/{id?}"
+    );
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final_Project.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20230428000014_Initial")]
-    partial class Initial
+    [Migration("20230501194954_vReqs")]
+    partial class vReqs
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -94,6 +94,131 @@ namespace Final_Project.Migrations
                             Title = "Message1",
                             UserName = "Null"
                         });
+                });
+
+            modelBuilder.Entity("Final_Project.Areas.Team.Models.DomainModels.Team", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Prgm")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Program")
+                        .HasColumnType("int");
+
+                    b.Property<string>("about")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
+                    b.Property<string>("name")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
+                    b.Property<string>("number")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Teams");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            Prgm = "FRC",
+                            Program = 0,
+                            about = "This is a team assocxiated with the ICE organization",
+                            description = "Description ICE",
+                            name = "Test1",
+                            number = "6419"
+                        },
+                        new
+                        {
+                            id = 2,
+                            Prgm = "FRC",
+                            Program = 1,
+                            about = "This is a team assocxiated with the ICE organization",
+                            description = "Description Test1",
+                            name = "Test2",
+                            number = "Testc"
+                        },
+                        new
+                        {
+                            id = 3,
+                            Prgm = "FRC",
+                            Program = 1,
+                            about = "This is a team assocxiated with the ICE organization",
+                            description = "Description Test2",
+                            name = "Test3",
+                            number = "Testb"
+                        },
+                        new
+                        {
+                            id = 4,
+                            Prgm = "FRC",
+                            Program = 1,
+                            about = "This is a team assocxiated with the ICE organization",
+                            description = "Description Test3",
+                            name = "Test4",
+                            number = "Testa"
+                        },
+                        new
+                        {
+                            id = 5,
+                            Prgm = "FRC",
+                            Program = 1,
+                            about = "This is a team assocxiated with the ICE organization",
+                            description = "Description Test4",
+                            name = "Test5",
+                            number = "Test"
+                        });
+                });
+
+            modelBuilder.Entity("Final_Project.Areas.VolunteerRequest.Models.DomainModels.Request", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("VolReqs");
                 });
 
             modelBuilder.Entity("Final_Project.Models.DomainModels.Account", b =>

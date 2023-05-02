@@ -30,6 +30,12 @@
                             <a class="nav-link text-dark" asp-area="Student" asp-controller="Message" asp-action="MessageBoard">Message Board</a><!--Make the action for this-->
                          </li>
                      }
+                    @if (!signInManager.IsSignedIn(User) || !(User.IsInRole("Admin") || User.IsInRole("Student")))
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="VolunteerRequest" asp-controller="Request" asp-action="Request">Volunteer</a><!--Make the action for this-->
+                        </li>
+                    }
                 </ul>
                 <div class="navbar-fixed-top d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 mr-auto">

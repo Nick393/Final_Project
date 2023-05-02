@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "lxf+8DFL1K51Yqd5QYvziwMwf3B9+hUfwfreWShs0TRRuaAkdZgMJtukk+6JRC7cExfK9DcIGhjaFHWFVPqjCQ==",
+  "dgSpecHash": "5FVUIWQL6gJuRx/AQCJJW8qqE/jxpcEySjwZiKBtRyQhctKWOkv6h1WGQtQ9ZlJNwF1ryWZGoogGgsP+E9bycg==",
   "success": true,
   "projectFilePath": "C:\\Users\\cmgke\\Documents\\GitHub\\Final_Project\\Final_Project\\Final_Project\\Final_Project.csproj",
   "expectedPackageFiles": [
@@ -88,6 +88,7 @@
     "C:\\Users\\cmgke\\.nuget\\packages\\nuget.projectmodel\\6.3.1\\nuget.projectmodel.6.3.1.nupkg.sha512",
     "C:\\Users\\cmgke\\.nuget\\packages\\nuget.protocol\\6.3.1\\nuget.protocol.6.3.1.nupkg.sha512",
     "C:\\Users\\cmgke\\.nuget\\packages\\nuget.versioning\\6.3.1\\nuget.versioning.6.3.1.nupkg.sha512",
+    "C:\\Users\\cmgke\\.nuget\\packages\\popper.js\\1.16.1\\popper.js.1.16.1.nupkg.sha512",
     "C:\\Users\\cmgke\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\cmgke\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\cmgke\\.nuget\\packages\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

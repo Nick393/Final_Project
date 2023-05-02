@@ -1,0 +1,53 @@
+﻿@using Final_Project.Areas.VolunteerRequest.Models.ViewModels;
+@model Final_Project.Areas.VolunteerRequest.Models.ViewModels.VolunteerRequestModel
+@{
+    ViewBag.Title = "Volunteer Request Form";
+}
+
+<h2>Volunteer</h2>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form method="post" asp-action="Request">
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">First Name:</label>
+        <div class="col-md-4">
+            <input asp-for="FirstName" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Last Name:</label>
+        <div class="col-md-4">
+            <input asp-for="LastName" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Email:</label>
+        <div class="col-md-4">
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Cell Phone Number:</label>
+        <div class="col-md-4">
+            <input asp-for="Phone" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col offset-md-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a asp-area=""asp-action="Index" asp-controller="Home" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+</form>

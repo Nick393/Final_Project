@@ -10,7 +10,7 @@
 
 <table class="table table-bordered table-striped table-sm">
     <thead>
-        <tr><th>Username</th><th>Title</th><th>Body</th><th></th><th></th></tr>
+        <tr><th>Username</th><th>Title</th><th></th><th></th><th></th></tr>
     </thead>
     <tbody>
     @if (Model.Messages.Count() == 0)
@@ -22,10 +22,17 @@
              
         @foreach (Message msg in Model.Messages)
         {
+            if(!msg.isReply)
+            {
             <tr>
             <td>@msg.UserName</td>
             <td>@msg.Title</td>
-            <td>@msg.Body</td>
+            <td><form method="post" asp-action="Message"
+                      asp-route-id="@msg.id">
+                                <button type="submit" class="btn btn-primary">
+                                    Open Message
+                                </button>
+                            </form></td>
                     
                     @if (User.IsInRole("Admin") || msg.UserName == User.Identity?.Name)
                     {
@@ -39,6 +46,7 @@
                         </td>
                     }
                 </tr>
+        }
         }
                 
     }

@@ -70,6 +70,23 @@ namespace Final_Project.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Teams",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    number = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    name = table.Column<string>(type: "nvarchar(3000)", maxLength: 3000, nullable: false),
+                    description = table.Column<string>(type: "nvarchar(3000)", maxLength: 3000, nullable: false),
+                    about = table.Column<string>(type: "nvarchar(3000)", maxLength: 3000, nullable: false),
+                    Program = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Teams", x => x.id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoleClaims",
                 columns: table => new
                 {
@@ -188,6 +205,18 @@ namespace Final_Project.Migrations
                     { -1, "Body1", "Message5", "Null" }
                 });
 
+            migrationBuilder.InsertData(
+                table: "Teams",
+                columns: new[] { "id", "Program", "about", "description", "name", "number" },
+                values: new object[,]
+                {
+                    { 1, 0, "This is a team assocxiated with the ICE organization", "Description ICE", "Test1", "6419" },
+                    { 2, 1, "This is a team assocxiated with the ICE organization", "Description Test1", "Test2", "Testc" },
+                    { 3, 1, "This is a team assocxiated with the ICE organization", "Description Test2", "Test3", "Testb" },
+                    { 4, 1, "This is a team assocxiated with the ICE organization", "Description Test3", "Test4", "Testa" },
+                    { 5, 1, "This is a team assocxiated with the ICE organization", "Description Test4", "Test5", "Test" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -248,6 +277,9 @@ namespace Final_Project.Migrations
 
             migrationBuilder.DropTable(
                 name: "Messages");
+
+            migrationBuilder.DropTable(
+                name: "Teams");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

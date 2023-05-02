@@ -1,11 +1,14 @@
 ﻿@model Final_Project.Areas.Team.Models.DomainModels.Team
-<h1>Details</h1>
-<h2>@Model.number</h2>
+
+<h1>@Model.number @Model.name</h1>
 <div>
 </div>
-<h2>@Model.name</h2>
+<h2>an @Model.Prgm.ToString() Team</h2>
 <div>
 </div>
 <h2>@Model.description</h2>
+<div>
+</div>
+<p>@Model.about</p>
 <a asp-action="Index" asp-controller="Team" class="btn btn-primary">Back</a>
 

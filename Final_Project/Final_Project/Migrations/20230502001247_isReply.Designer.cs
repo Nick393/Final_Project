@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Final_Project.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20230430020334_team")]
-    partial class team
+    [Migration("20230502001247_isReply")]
+    partial class isReply
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -38,6 +38,9 @@ namespace Final_Project.Migrations
                         .HasMaxLength(3000)
                         .HasColumnType("nvarchar(3000)");
 
+                    b.Property<int?>("Messageid")
+                        .HasColumnType("int");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -47,7 +50,12 @@ namespace Final_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("isReply")
+                        .HasColumnType("bit");
+
                     b.HasKey("id");
+
+                    b.HasIndex("Messageid");
 
                     b.ToTable("Messages");
 
@@ -57,42 +65,48 @@ namespace Final_Project.Migrations
                             id = -6,
                             Body = "Body1",
                             Title = "Message5",
-                            UserName = "Null"
+                            UserName = "Null",
+                            isReply = false
                         },
                         new
                         {
                             id = -1,
                             Body = "Body1",
                             Title = "Message5",
-                            UserName = "Null"
+                            UserName = "Null",
+                            isReply = false
                         },
                         new
                         {
                             id = -2,
                             Body = "Body2",
                             Title = "Message4",
-                            UserName = "Null"
+                            UserName = "Null",
+                            isReply = false
                         },
                         new
                         {
                             id = -3,
                             Body = "Body3",
                             Title = "Message3",
-                            UserName = "Null"
+                            UserName = "Null",
+                            isReply = false
                         },
                         new
                         {
                             id = -4,
                             Body = "Body4",
                             Title = "Message2",
-                            UserName = "Null"
+                            UserName = "Null",
+                            isReply = false
                         },
                         new
                         {
                             id = -5,
                             Body = "Body5",
                             Title = "Message1",
-                            UserName = "Null"
+                            UserName = "Null",
+                            isReply = false
                         });
                 });
 
@@ -103,6 +117,23 @@ namespace Final_Project.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Prgm")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Program")
+                        .HasColumnType("int");
+
+                    b.Property<string>("about")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
+                    b.Property<string>("description")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
 
                     b.Property<string>("name")
                         .IsRequired()
@@ -117,6 +148,91 @@ namespace Final_Project.Migrations
                     b.HasKey("id");
 
                     b.ToTable("Teams");
+
+                    b.HasData(
+                        new
+                        {
+                            id = 1,
+                            Prgm = "FRC",
+                            Program = 0,
+                            about = "This is a team assocxiated with the ICE organization",
+                            description = "Description ICE",
+                            name = "Test1",
+                            number = "6419"
+                        },
+                        new
+                        {
+                            id = 2,
+                            Prgm = "FRC",
+                            Program = 1,
+                            about = "This is a team assocxiated with the ICE organization",
+                            description = "Description Test1",
+                            name = "Test2",
+                            number = "Testc"
+                        },
+                        new
+                        {
+                            id = 3,
+                            Prgm = "FRC",
+                            Program = 1,
+                            about = "This is a team assocxiated with the ICE organization",
+                            description = "Description Test2",
+                            name = "Test3",
+                            number = "Testb"
+                        },
+                        new
+                        {
+                            id = 4,
+                            Prgm = "FRC",
+                            Program = 1,
+                            about = "This is a team assocxiated with the ICE organization",
+                            description = "Description Test3",
+                            name = "Test4",
+                            number = "Testa"
+                        },
+                        new
+                        {
+                            id = 5,
+                            Prgm = "FRC",
+                            Program = 1,
+                            about = "This is a team assocxiated with the ICE organization",
+                            description = "Description Test4",
+                            name = "Test5",
+                            number = "Test"
+                        });
+                });
+
+            modelBuilder.Entity("Final_Project.Areas.VolunteerRequest.Models.DomainModels.Request", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(3000)
+                        .HasColumnType("nvarchar(3000)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("VolReqs");
                 });
 
             modelBuilder.Entity("Final_Project.Models.DomainModels.Account", b =>
@@ -327,6 +443,13 @@ namespace Final_Project.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Final_Project.Areas.Student.Models.DomainModels.Message", b =>
+                {
+                    b.HasOne("Final_Project.Areas.Student.Models.DomainModels.Message", null)
+                        .WithMany("Replies")
+                        .HasForeignKey("Messageid");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -376,6 +499,11 @@ namespace Final_Project.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Final_Project.Areas.Student.Models.DomainModels.Message", b =>
+                {
+                    b.Navigation("Replies");
                 });
 #pragma warning restore 612, 618
         }

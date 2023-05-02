@@ -64,12 +64,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Message/Message.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xNZXNzYWdlXE1lc3NhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Message/MessageBoard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xNZXNzYWdlXE1lc3NhZ2VCb2FyZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Message/PostMessage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xNZXNzYWdlXFBvc3RNZXNzYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Message/ReplyMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xNZXNzYWdlXFJlcGx5TWVzc2FnZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/_ViewImports.cshtml]
@@ -98,6 +106,22 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Team/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVGVhbVxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/VolunteerRequest/Views/Request/Request.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVm9sdW50ZWVyUmVxdWVzdFxWaWV3c1xSZXF1ZXN0XFJlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/VolunteerRequest/Views/Request/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVm9sdW50ZWVyUmVxdWVzdFxWaWV3c1xSZXF1ZXN0XFN1Y2Nlc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/VolunteerRequest/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVm9sdW50ZWVyUmVxdWVzdFxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/VolunteerRequest/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcVm9sdW50ZWVyUmVxdWVzdFxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Views/Account/AccessDenied.cshtml]

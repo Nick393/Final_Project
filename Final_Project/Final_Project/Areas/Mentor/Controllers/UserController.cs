@@ -17,12 +17,18 @@ namespace Final_Project.Areas.Mentor.Controllers
     {
         private UserManager<Account> userManager;
         private RoleManager<IdentityRole> roleManager;
-
+        private SiteContext siteContext;
+        private List<Final_Project.Areas.VolunteerRequest.Models.DomainModels.Request> requests = new List<Final_Project.Areas.VolunteerRequest.Models.DomainModels.Request>();
+        
         public UserController(UserManager<Account> userMngr, 
-            RoleManager<IdentityRole> roleMngr)
+            RoleManager<IdentityRole> roleMngr,SiteContext ctx)
         {
             userManager = userMngr;
             roleManager = roleMngr;
+            siteContext = ctx;
+            requests = siteContext.VolReqs
+                    .OrderBy(c => c.id)
+                    .ToList();
         }
 
         public async Task<IActionResult> Approval()
@@ -33,10 +39,16 @@ namespace Final_Project.Areas.Mentor.Controllers
                 user.RoleNames = await userManager.GetRolesAsync(user);
                 users.Add(user);
             }
+            List <Final_Project.Areas.VolunteerRequest.Models.DomainModels.Request>reqs= new List<Final_Project.Areas.VolunteerRequest.Models.DomainModels.Request>();
+            foreach (Final_Project.Areas.VolunteerRequest.Models.DomainModels.Request r in siteContext.VolReqs)
+            {
+                reqs.Add(r);
+            }
             UserViewModel model = new UserViewModel
             {
                 Users = users,
-                Roles = roleManager.Roles
+                Roles = roleManager.Roles,
+                requests= reqs
             };
             return View(model);
         }
@@ -60,7 +72,22 @@ namespace Final_Project.Areas.Mentor.Controllers
             }
             return RedirectToAction("Approval");
         }
+        [HttpPost]
+        public RedirectToActionResult Resolve(int id)
+        {
+            foreach (Final_Project.Areas.VolunteerRequest.Models.DomainModels.Request req in siteContext.VolReqs)
+            {
+                if(req.id==id)
+                {
+                    siteContext.VolReqs.Remove(req);
+                }
+            }
+   
 
+            siteContext.SaveChanges();
+
+            return RedirectToAction("Approval");
+        }
         [HttpGet]
         public IActionResult Add()
         {

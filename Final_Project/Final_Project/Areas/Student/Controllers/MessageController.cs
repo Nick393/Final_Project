@@ -50,9 +50,12 @@ namespace Final_Project.Areas.Student.Controllers
             {
                 Models.DomainModels.Message message = new Models.DomainModels.Message();
                 message.Title = model.Title;
+                message.isReply = false;
                 message.id = model.id;
+                message.ParentID = 0;
                 message.UserName = User.Identity?.Name ?? "";
                 message.Body = model.Body;
+                message.Replies = model.Replies;
                 _siteContext.Messages.Add(message);
                 _siteContext.SaveChanges();
                 return RedirectToAction("MessageBoard");
@@ -108,6 +111,74 @@ namespace Final_Project.Areas.Student.Controllers
             
             return RedirectToAction("MessageBoard");  
         }
+        public IActionResult Message(int id)
+        {
+            foreach (Final_Project.Areas.Student.Models.DomainModels.Message message in _siteContext.Messages)
+            {
 
+                if (message.id == id)
+                {
+                    return View(message);
+                }
+            }
+            return RedirectToAction("MessageBoard");
+        }
+        [HttpGet]
+        public IActionResult ReplyMessage(int parentId)
+        {
+            ReplyMessageModel model = new ReplyMessageModel();
+           // model.ParentId= parentId;
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult ReplyMessage(ReplyMessageModel model)
+        {
+            /*List<Message> messages;
+
+            messages = _siteContext.Messages
+                   .OrderBy(p => p.id).ToList();
+            MessageViewModel viewModel = new MessageViewModel();
+            viewModel.Messages = messages;*/
+
+            if (ModelState.IsValid)
+            {
+                Models.DomainModels.Message message = new Models.DomainModels.Message();
+                message.Title = model.Title;
+                //message.id = model.id;
+                message.UserName = User.Identity?.Name ?? "";
+                message.Body = model.Body;
+                message.Replies = model.Replies;
+                message.isReply = true;
+                foreach (Models.DomainModels.Message msg in _siteContext.Messages)
+                {
+                    if(msg.id==model.id)
+                    {
+                        message.ParentID= msg.id;
+                        msg.Replies.Add(message);
+                        
+                    }
+                }
+                
+                _siteContext.SaveChanges();
+                return RedirectToAction("MessageBoard");
+            }
+            else
+            {
+                return View(model);
+            }
+
+
+        }
+        public IActionResult returnToLast(int id)
+        {
+            foreach (Message msg in _siteContext.Messages)
+            {
+                if(msg.id==id)
+                {
+                    return View("Message", msg);
+                }
+            }
+            return RedirectToAction("MessageBoard");
+        }
     }
 }

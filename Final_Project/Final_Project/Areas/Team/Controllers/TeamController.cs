@@ -67,6 +67,8 @@ namespace Final_Project.Areas.Team.Controllers
                 Models.DomainModels.Team team = new Models.DomainModels.Team();
                 team.number = model.Number;
                 team.name = model.Name;
+                team.about = model.about;
+                team.Prgm= model.Prgm;
                 //team.id = model.;
                 team.description = model.Description;
                 

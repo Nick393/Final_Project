@@ -1,4 +1,5 @@
-﻿@model Final_Project.Areas.Team.Models.ViewModels.AddTeamModel
+﻿@using Final_Project.Areas.Team.Models.ViewModels;
+@model Final_Project.Areas.Team.Models.ViewModels.AddTeamModel
 @{
     ViewBag.Title = "Add Team";
 }
@@ -33,6 +34,29 @@
     <div class="col">
         <span asp-validation-for="Description" class="text-danger"></span>
     </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">About this team (long):</label>
+        <div class="col-md-4">
+            <textarea asp-for="about" class="form-control" rows="6" cols="6"></textarea>
+        </div>
+        <div class="col">
+            <span asp-validation-for="about" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Program:</label>
+        <div class="col-md-4 dropdown" >
+           <!-- <button class="dropdown-toggle">Team Type</button-->
+            <div class="dropdown" >
+                <select asp-for="Prgm"class="dropdown">
+                <option>Select Team Type</option>
+                <option>FRC</option>
+                <option>FTC</option>
+                <option>FLL</option></select>
+            </div>
+            
+        </div>
     </div>
     <div class="row">
         <div class="col offset-md-2">

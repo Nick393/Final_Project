@@ -7,5 +7,6 @@ namespace Final_Project.Areas.Mentor.Models
     {
         public IEnumerable<Account> Users { get; set; } = null!;//this returned null
         public IEnumerable<IdentityRole> Roles { get; set; } = null!;
+        public IEnumerable <Final_Project.Areas.VolunteerRequest.Models.DomainModels.Request> requests { get; set; }=null!;
     }
 }

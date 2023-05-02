@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using Final_Project.Areas.Student.Models.DomainModels;
 namespace Final_Project.Areas.Student.Models.ViewModels
 {
     public class PostMessageModel
@@ -12,6 +12,9 @@ namespace Final_Project.Areas.Student.Models.ViewModels
         [StringLength(3000)]
         public string Body { get; set; } = string.Empty;
         public string UserName { get; set; }= string.Empty;
+        public List<Message>Replies=null!;
+        public int parentId { get; set; }
+        bool isReply { get; set; }
         public int id { get; set; }
 
 

@@ -5,16 +5,15 @@
 namespace Final_Project.Migrations
 {
     /// <inheritdoc />
-    public partial class desc : Migration
+    public partial class prgm : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "description",
+                name: "Prgm",
                 table: "Teams",
-                type: "nvarchar(3000)",
-                maxLength: 3000,
+                type: "nvarchar(max)",
                 nullable: false,
                 defaultValue: "");
 
@@ -22,43 +21,43 @@ namespace Final_Project.Migrations
                 table: "Teams",
                 keyColumn: "id",
                 keyValue: 1,
-                column: "description",
-                value: "an FRC team");
+                column: "Prgm",
+                value: "FRC");
 
             migrationBuilder.UpdateData(
                 table: "Teams",
                 keyColumn: "id",
                 keyValue: 2,
-                column: "description",
-                value: "an FTC team");
+                column: "Prgm",
+                value: "FRC");
 
             migrationBuilder.UpdateData(
                 table: "Teams",
                 keyColumn: "id",
                 keyValue: 3,
-                column: "description",
-                value: "an FTC team");
+                column: "Prgm",
+                value: "FRC");
 
             migrationBuilder.UpdateData(
                 table: "Teams",
                 keyColumn: "id",
                 keyValue: 4,
-                column: "description",
-                value: "an FTC team");
+                column: "Prgm",
+                value: "FRC");
 
             migrationBuilder.UpdateData(
                 table: "Teams",
                 keyColumn: "id",
                 keyValue: 5,
-                column: "description",
-                value: "an FTC team");
+                column: "Prgm",
+                value: "FRC");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "description",
+                name: "Prgm",
                 table: "Teams");
         }
     }
