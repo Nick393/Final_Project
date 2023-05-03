@@ -23,12 +23,29 @@ namespace Final_Project.Areas.MemberLinks.Controllers
         }
 
         [HttpGet]
-        public IActionResult Links()
+        public IActionResult Links(string teamType)
         {
-            List<Models.DomainModels.Link> links;
-            links = _siteContext.Links
-                   .OrderBy(p => p.id).ToList();
+            List<Models.DomainModels.Link> links = new List<Models.DomainModels.Link>() ;
+            // links = _siteContext.Links
+            //.OrderBy(p => p.id).ToList();
             LinksModel viewModel = new LinksModel();
+            foreach (Final_Project.Areas.MemberLinks.Models.DomainModels.Link link in _siteContext.Links)
+            {
+                if(link.teamtype==teamType)
+                {
+                    links.Add(link);
+                    viewModel.type = teamType;
+                }
+            }
+            if(links.Count==0)
+            {
+                foreach(Final_Project.Areas.MemberLinks.Models.DomainModels.Link link in _siteContext.Links)
+                {
+                    links.Add(link);
+                }
+                viewModel.type = "All";
+            }
+            
             viewModel.links = links;
             return View(viewModel);
             //return View(model);
@@ -67,6 +84,7 @@ namespace Final_Project.Areas.MemberLinks.Controllers
                 Models.DomainModels.Link link = new Models.DomainModels.Link();
                 link.name = model.name;
                 link.LinkData = model.LinkData;
+                link.teamtype = model.teamtype;
 
                 _siteContext.Links.Add(link);
                 _siteContext.SaveChanges();

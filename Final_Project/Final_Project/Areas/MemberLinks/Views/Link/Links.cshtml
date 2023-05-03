@@ -6,7 +6,14 @@
     ViewData["Title"] = " | Teams";
 }
 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-<h1 class="mb-2">Links</h1>
+@if (!(Model.type == "All"))
+{
+    <h1 class="mb-2">@Model.type Resources</h1>
+}
+else
+{
+    <h1 class="mb-2">Showing all resources</h1>
+}
 
 @if (User.IsInRole("Admin"))
 {
@@ -30,7 +37,7 @@
             {
                 <tr>
                     <td>@link.name</td>
-                    <td>@link.LinkData</td>
+                    <td><a href =https://@link.LinkData target="_blank">View this resource</a></td>
 
 
 

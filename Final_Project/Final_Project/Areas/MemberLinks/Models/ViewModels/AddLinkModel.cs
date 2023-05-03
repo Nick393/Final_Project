@@ -17,6 +17,7 @@ namespace Final_Project.Areas.MemberLinks.Models.ViewModels
 
         [Key]
         public int id { get; set; }
+        public string teamtype { get; set; }= string.Empty;
     }
 
 

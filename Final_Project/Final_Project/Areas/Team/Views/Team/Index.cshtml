@@ -15,7 +15,7 @@
 
 <table class="table table-bordered table-striped table-sm">
     <thead>
-        <tr><th>Number</th><th>Name</th><th>Details</th><th></th><th></th></tr>
+        <tr><th>Number</th><th>Name</th><th>Details</th></tr>
     </thead>
     <tbody>
 
@@ -45,10 +45,10 @@
                         @if (User.IsInRole("Admin"))
                         {
                             <td>
-                            <form method="post" asp-action="Details"
+                            <form method="post" asp-action="Resources"
                       asp-route-id="@team.id">
                                 <button type="submit" class="btn btn-primary">
-                                    Add Images
+                                    Add Resources
                                 </button>
                             </form>
                                    </td>

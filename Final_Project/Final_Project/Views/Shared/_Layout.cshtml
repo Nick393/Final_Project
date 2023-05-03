@@ -32,9 +32,47 @@
                          <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Student" asp-controller="Message" asp-action="MessageBoard">Message Board</a><!--Make the action for this-->
                          </li>
-                          <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="MemberLinks" asp-controller="Link" asp-action="Links">Member Links</a><!--Make the action for this-->
-                         </li>
+                        <li class="nav-item dropdown">
+                            <form method="get" asp-area="MemberLinks" asp-controller="Link"asp-action="Links"itemid="teamType">
+                            <select name="teamType" class="form-control" onchange="document.forms[0].submit();"><option>Team Resources</option><option>FRC</option>
+                <option>FTC</option>
+                <option>FLL</option></select>
+                           
+
+                            </form>
+                            
+                        </li>
+                        <!--<li class="nav-item dropdown">
+                            <a asp-action="Index" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>-->
+                        <!--li class="nav-item-dropdown">
+                            <div class="row mb-2">
+                                <label class="col-form-label col-md-2">Member Resources:</label>
+                                <div class="col-md-4 dropdown">
+                                    <!- <button class="dropdown-toggle">Team Type</button
+                                    <div class="dropdown">
+                                        <select asp-area="MemberLinks" asp-controller="Link" asp-action="Links" asp-route-id="teamType" class="dropdown">
+                                            <option>Select Team Type</option>
+                                            <option>FRC</option>
+                                            <option>FTC</option>
+                                            <option>FLL</option>
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </li>-->
+                            
+                          
                      }
                 </ul>
                 <div class="navbar-fixed-top d-sm-inline-flex justify-content-between">

@@ -13,7 +13,7 @@ namespace Final_Project.Areas.Team.Controllers
     {
         private SiteContext _siteContext;
         private List<Models.DomainModels.Team> teems = new List<Models.DomainModels.Team>();
-        //private Repository<Final_Project.Areas.Team.Models.DomainModels.Team> data { get; set; }
+        
         public TeamController(SiteContext ctx)
         {
             _siteContext = ctx;
@@ -95,5 +95,17 @@ namespace Final_Project.Areas.Team.Controllers
             }
             return View();
         }
+        public IActionResult Resources(int id)
+        {
+            foreach (Final_Project.Areas.Team.Models.DomainModels.Team team in _siteContext.Teams)
+            {
+                if (team.id == id)
+                {
+                    return View(team);
+                }
+            }
+            return RedirectToAction("Index");
+        }
+       
     }
 }

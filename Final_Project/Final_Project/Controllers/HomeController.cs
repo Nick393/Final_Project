@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Final_Project.Models.ViewModels;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Final_Project.Controllers
 {
@@ -16,6 +17,14 @@ namespace Final_Project.Controllers
 
         public IActionResult Index()
         {
+            List<SelectListItem> Types = new() {
+                new SelectListItem{Value="0",Text="Member Resources"},
+                new SelectListItem { Value = "1", Text = "FRC Member Resources" },
+                new SelectListItem { Value = "2", Text = "FTC Member Resources" },
+                new SelectListItem { Value = "3", Text = "FLL Member Resources" },
+            };
+            ViewBag.Types = Types;
+            
             return View();
         }
         public IActionResult About()

@@ -12,6 +12,7 @@ namespace Final_Project.Areas.MemberLinks.Models.DomainModels
         [Required(ErrorMessage = "Please enter the link to the resource")]
         [StringLength(3000)]
         public string LinkData { get; set; } = string.Empty;
+        public string teamtype { get; set; }=string.Empty;
         
         [Key]
         public int id { get; set; }

@@ -1,7 +1,7 @@
 ﻿@using Final_Project.Areas.MemberLinks.Models.ViewModels;
 @model Final_Project.Areas.MemberLinks.Models.ViewModels.AddLinkModel
 @{
-    ViewBag.Title = "Add Team";
+    ViewBag.Title = "Add Resource";
 }
 
 <h2>Add Team</h2>
@@ -24,6 +24,21 @@
         </div>
         <div class="col">
             <span asp-validation-for="LinkData" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Program:</label>
+        <div class="col-md-4 dropdown">
+            
+            <div class="dropdown">
+                <select asp-for="teamtype" class="dropdown">
+                    <option>Select Team Type</option>
+                    <option>FRC</option>
+                    <option>FTC</option>
+                    <option>FLL</option>
+                </select>
+            </div>
+
         </div>
     </div>
    
