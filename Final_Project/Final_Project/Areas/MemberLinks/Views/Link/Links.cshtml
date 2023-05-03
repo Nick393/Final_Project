@@ -1,0 +1,60 @@
+﻿@using Final_Project.Models.DomainModels;
+@using Final_Project.Areas.MemberLinks.Models.DomainModels
+@model Final_Project.Areas.MemberLinks.Models.LinksModel
+@using Final_Project.Areas.Mentor.Controllers;
+@{
+    ViewData["Title"] = " | Teams";
+}
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<h1 class="mb-2">Links</h1>
+
+@if (User.IsInRole("Admin"))
+{
+    <h5 class="mt-2"><a asp-action="AddLink">Add a link</a></h5>
+}
+
+<table class="table table-bordered table-striped table-sm">
+    <thead>
+        <tr><th> Resource Name</th><th>Link</th><th></th><th></th><th></th></tr>
+    </thead>
+    <tbody>
+
+        @if (Model.links.Count() == 0)
+        {
+            <tr><td colspan="5">There are no links</td></tr>
+        }
+        else
+        {
+
+            @foreach (Link link in Model.links)
+            {
+                <tr>
+                    <td>@link.name</td>
+                    <td>@link.LinkData</td>
+
+
+
+                    
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <td>
+                            <form method="post" asp-action="Delete"
+                      asp-route-id="@link.id">
+                                <button type="submit" class="btn btn-primary">
+                                    Delete link
+                                </button>
+                            </form>
+                        </td>
+                    }
+
+
+
+                </tr>
+            }
+
+        }
+
+    </tbody>
+</table>
+
+

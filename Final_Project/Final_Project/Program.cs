@@ -67,6 +67,11 @@ app.MapAreaControllerRoute(
     areaName: "VolunteerRequest",
     pattern: "VolunteerRequest/{controller=Request}/{action=Request}/{id?}"
     );
+app.MapAreaControllerRoute(
+    name: "MemberLinks",
+    areaName: "MemberLinks",
+    pattern: "MemberLinks/{controller=Link}/{action=Links}/{id?}"
+    );
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

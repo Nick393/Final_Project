@@ -1,0 +1,36 @@
+﻿@using Final_Project.Areas.MemberLinks.Models.ViewModels;
+@model Final_Project.Areas.MemberLinks.Models.ViewModels.AddLinkModel
+@{
+    ViewBag.Title = "Add Team";
+}
+
+<h2>Add Team</h2>
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form method="post" asp-action="AddLink">
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Name of Resource:</label>
+        <div class="col-md-4">
+            <input asp-for="name" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Link:</label>
+        <div class="col-md-4">
+            <input asp-for="LinkData" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="LinkData" class="text-danger"></span>
+        </div>
+    </div>
+   
+    <div class="row">
+        <div class="col offset-md-2">
+            <button type="submit" class="btn btn-primary">Add</button>
+            <a asp-action="Links" asp-controller="Link" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+    </form>

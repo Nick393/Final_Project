@@ -16,6 +16,7 @@ namespace Final_Project.Models
         public DbSet<Message> Messages { get; set; } = null!;
         public DbSet<Final_Project.Areas.Team.Models.DomainModels.Team> Teams { get; set; } = null!;
         public DbSet<Final_Project.Areas.VolunteerRequest.Models.DomainModels.Request> VolReqs { get; set; } = null!;
+        public DbSet<Final_Project.Areas.MemberLinks.Models.DomainModels.Link> Links { get; set; } = null!;
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
