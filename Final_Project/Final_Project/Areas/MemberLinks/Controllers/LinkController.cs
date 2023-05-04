@@ -88,7 +88,7 @@ namespace Final_Project.Areas.MemberLinks.Controllers
 
                 _siteContext.Links.Add(link);
                 _siteContext.SaveChanges();
-                return RedirectToAction("Links");
+                return View("redirect");
             }
             else
             {

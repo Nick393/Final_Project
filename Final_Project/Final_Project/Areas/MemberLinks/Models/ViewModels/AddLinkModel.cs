@@ -17,7 +17,10 @@ namespace Final_Project.Areas.MemberLinks.Models.ViewModels
 
         [Key]
         public int id { get; set; }
+        [Required(ErrorMessage = "Please enter a team type")]
+        [StringLength(3,ErrorMessage ="Select a team type")]
         public string teamtype { get; set; }= string.Empty;
+        
     }
 
 

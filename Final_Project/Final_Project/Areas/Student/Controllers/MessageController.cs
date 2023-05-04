@@ -48,7 +48,7 @@ namespace Final_Project.Areas.Student.Controllers
 
             if (ModelState.IsValid)
             {
-                Models.DomainModels.Message message = new Models.DomainModels.Message();
+                Models.DomainModels.Message message = new Models.DomainModels.Message();//This works
                 message.Title = model.Title;
                 message.isReply = false;
                 message.id = model.id;
@@ -62,7 +62,7 @@ namespace Final_Project.Areas.Student.Controllers
             }
             else
             {
-                return View("error");
+                return View(model);
             }
 
             

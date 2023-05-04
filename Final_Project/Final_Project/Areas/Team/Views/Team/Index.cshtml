@@ -44,14 +44,14 @@
                         </td>
                         @if (User.IsInRole("Admin"))
                         {
-                            <td>
+                            <!--<td>
                             <form method="post" asp-action="Resources"
                       asp-route-id="@team.id">
                                 <button type="submit" class="btn btn-primary">
                                     Add Resources
                                 </button>
                             </form>
-                                   </td>
+                                   </td>-->
                               <td>
                                   <form method="post" asp-action="Delete"
                       asp-route-id="@team.id">

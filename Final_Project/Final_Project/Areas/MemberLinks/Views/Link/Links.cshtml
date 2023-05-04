@@ -37,8 +37,17 @@ else
             {
                 <tr>
                     <td>@link.name</td>
-                    <td><a href =https://@link.LinkData target="_blank">View this resource</a></td>
 
+                    @if (link.LinkData.ToLower().Contains("https://"))
+                    {
+                        <td><a href=@link.LinkData target="_blank">View this resource</a></td>
+                    }
+                    else
+                    {
+                       
+                    
+                    <td><a href =https://@link.LinkData target="_blank">View this resource</a></td>
+                    }
 
 
                     

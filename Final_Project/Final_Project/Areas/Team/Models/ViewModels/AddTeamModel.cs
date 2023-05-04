@@ -24,8 +24,8 @@ namespace Final_Project.Areas.Team.Models.ViewModels
        // [StringLength(3000)]
         public TeamType Program { get; set; }
         [Required(ErrorMessage = "Please select a program type")]
-        [MinLength(3)]
-        [MaxLength(3)]
+        [MinLength(3, ErrorMessage = "Select a team type")]
+        [MaxLength(3, ErrorMessage = "Select a team type")]
         public string Prgm { get; set; }=string.Empty;
         public int id { get; set; }
 
