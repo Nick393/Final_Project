@@ -12,7 +12,7 @@
 }
 else
 {
-    <h1 class="mb-2">Showing all resources</h1>
+    <h1 class="mb-2">Showing all Resources</h1>
 }
 
 @if (User.IsInRole("Admin"))
@@ -40,13 +40,13 @@ else
 
                     @if (link.LinkData.ToLower().Contains("https://"))
                     {
-                        <td><a href=@link.LinkData target="_blank">View this resource</a></td>
+                        <td><a href=@link.LinkData target="_blank">View this Resource</a></td>
                     }
                     else
                     {
                        
                     
-                    <td><a href =https://@link.LinkData target="_blank">View this resource</a></td>
+                    <td><a href =https://@link.LinkData target="_blank">View this Resource</a></td>
                     }
 
 

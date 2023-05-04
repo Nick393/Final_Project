@@ -33,12 +33,15 @@
     <Folder Include="Areas\Team\Data\" />
     <Folder Include="Areas\Team\Models\Models\" />
     <Folder Include="Areas\VolunteerRequest\Data\" />
-    <Folder Include="Content\Images\Uploads\" />
+    <Folder Include="Content\" />
+    <Folder Include="wwwroot\Images\Uploads\" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="Areas\Mentor\Views\User\Add.cshtml" />
     <None Include="Areas\Mentor\Views\User\Index.cshtml" />
+    <None Include="wwwroot\Images\download.png" />
+    <None Include="wwwroot\Images\Ice.jpg" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UmWyTCgJQ6gbMvsYQGIVc1Nmdfzn1kq/nN+rqU8WM4o=",
+  "Hash": "Xcc4tPk9SobwXLveiyGDTeCAlvNIFxkPegvxpKR/AYc=",
   "Source": "Final_Project",
   "BasePath": "_content/Final_Project",
   "Mode": "Default",
@@ -83,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\cmgke\\Documents\\GitHub\\Final_Project\\Final_Project\\Final_Project\\wwwroot\\Images\\download.png",
+      "SourceId": "Final_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\cmgke\\Documents\\GitHub\\Final_Project\\Final_Project\\Final_Project\\wwwroot\\",
+      "BasePath": "_content/Final_Project",
+      "RelativePath": "Images/download.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\download.png"
+    },
+    {
+      "Identity": "C:\\Users\\cmgke\\Documents\\GitHub\\Final_Project\\Final_Project\\Final_Project\\wwwroot\\Images\\Ice.jpg",
+      "SourceId": "Final_Project",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\cmgke\\Documents\\GitHub\\Final_Project\\Final_Project\\Final_Project\\wwwroot\\",
+      "BasePath": "_content/Final_Project",
+      "RelativePath": "Images/Ice.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\Ice.jpg"
     },
     {
       "Identity": "C:\\Users\\cmgke\\Documents\\GitHub\\Final_Project\\Final_Project\\Final_Project\\wwwroot\\js\\site.js",
