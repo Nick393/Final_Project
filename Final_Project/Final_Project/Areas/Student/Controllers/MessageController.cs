@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
+using Microsoft.VisualBasic;
 using System.Data;
 
 namespace Final_Project.Areas.Student.Controllers
@@ -65,22 +66,22 @@ namespace Final_Project.Areas.Student.Controllers
                 message.ParentID = 0;
                 message.UserName = User.Identity?.Name ?? "";
                 message.Body = model.Body;
-                message.Users = model.Users;
+                
                 message.Recip=model.Recip;
                 message.Replies = model.Replies;
-                if (model.isPM == false)
+               /* if (model.isPM == false)
                 {
                     message.isPM = model.isPM;
                     message.Recip = string.Empty;
-                }
-                else if(message.Recip=="Select Recipient")
+                }*/
+                 if(message.Recip=="All")
                 {
                     message.isPM = false;
                     message.Recip = string.Empty;
                 }
                 else
                 {
-                    message.isPM = model.isPM; message.Recip = model.Recip;
+                    message.isPM = true; message.Recip = model.Recip;
                 }
                 
                 
@@ -132,12 +133,25 @@ namespace Final_Project.Areas.Student.Controllers
                     _siteContext.Messages.Remove(message);
                 }
             }
-            
-            
+
+
             //_siteContext.Messages.Remove(message); 
-            
-            _siteContext.SaveChanges();
-            
+            try
+            {
+
+
+                _siteContext.SaveChanges();
+            }
+            catch
+            {
+                foreach (Message message in _siteContext.Messages)
+                {
+                    message.isReply = true;
+                    message.isPM = true;
+                    message.obscure= true;
+                }
+                return RedirectToAction("MessageBoard");
+            }
             return RedirectToAction("MessageBoard");  
         }
         public IActionResult Message(int id)
@@ -220,15 +234,15 @@ namespace Final_Project.Areas.Student.Controllers
             foreach (Message msg in _siteContext.Messages)
             {
 
-                msg.Replies =new List<Message>();
-                msg.Users = new List<Account>();
-                msg.isReply = false;
-                msg.isPM = false;
-                msg.Recip = string.Empty;
-                msg.UserName = string.Empty;
-                msg.Body = string.Empty;
-                msg.ParentID = 0;
-                msg.Title = string.Empty;
+                //msg.Replies =new List<Message>();
+                //msg.Users = new List<Account>();
+                //msg.isReply = false;
+                //msg.isPM = false;
+                //msg.Recip = string.Empty;
+                //msg.UserName = string.Empty;
+                //msg.Body = string.Empty;
+                //msg.ParentID = 0;
+                //msg.Title = string.Empty;
                 
 
             }
@@ -237,10 +251,22 @@ namespace Final_Project.Areas.Student.Controllers
             _siteContext.SaveChanges();
             foreach (Message msg in _siteContext.Messages)
             {
-                msg.Users=new List<Account>();
+                //msg.Users=new List<Account>();
                 _siteContext.Messages.Remove(msg);
             }
-            _siteContext.SaveChanges();
+            try
+            {
+                _siteContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                foreach(Message msg in _siteContext.Messages)
+                {
+                    msg.isReply = true;
+                    msg.obscure = true;
+                    
+                }
+            }
 
                 return RedirectToAction("MessageBoard");
         }

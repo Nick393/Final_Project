@@ -20,6 +20,7 @@ namespace Final_Project.Areas.Student.Models.DomainModels
         public string Recip { get; set; }=string.Empty;
         public IEnumerable<Account> Users { get; set; } = null!;
         public int ParentID { get; set; }
+        public bool obscure=false;
         public List<Message> Replies { get; set; } = new List<Message>();
     }
 }

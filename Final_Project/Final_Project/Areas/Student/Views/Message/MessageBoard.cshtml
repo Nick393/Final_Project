@@ -13,16 +13,19 @@
         <tr><th>Username</th><th></th><th>Title</th><th></th><th></th></tr>
     </thead>
     <tbody>
+        
     @if (Model.Messages.Count() == 0) 
     {
-        <tr><td colspan="5">There are no Messages</td></tr>
-    }
-    else
-    {
-             
-        @foreach (Message msg in Model.Messages)
+            <tr><td colspan="5">There are no Messages</td></tr>
+        }
+        else
         {
-                if (!msg.isReply && (msg.isPM == false || msg.Recip == User.Identity?.Name || User.IsInRole("Admin") || msg.UserName == User.Identity?.Name))
+            
+            @foreach (Message msg in Model.Messages)
+        {
+            if(!(msg.obscure))
+            {
+                if (!msg.isReply && (msg.isPM == false || msg.Recip == User.Identity?.Name || User.IsInRole("Admin") || msg.UserName == User.Identity?.Name)&&msg.obscure==false)
             {
             <tr>
                 @if(msg.UserName==User.Identity?.Name)
@@ -66,6 +69,7 @@
                         </td>
                     }
                 </tr>
+        }
         }
         }
                 

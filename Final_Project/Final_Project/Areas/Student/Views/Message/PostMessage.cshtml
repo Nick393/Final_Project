@@ -28,12 +28,12 @@
         </div>
     </div>
 
-    <div class="row mb-2">
+    <!-- <div class="row mb-2">
         <label class="col-form-label col-md-2">Private Message?:</label>
         <div class="col-md-4 dropdown">
-            <!-- <button class="dropdown-toggle">Team Type</button-->
+            <button class="dropdown-toggle">Team Type</button
             <div class="dropdown">
-                <select asp-for="isPM" class="dropdown">
+               <select asp-for="isPM" class="dropdown">
                     
                     <option>True</option>
                     <option>False</option>
@@ -43,17 +43,21 @@
                 <span asp-validation-for="isPM" class="text-danger"></span>
             </div>
         </div>
-    </div>
+    </div>-->
     <div class="row mb-2">
-        <label class="col-form-label col-md-2">Recipient (leave blank if public):</label>
+        <label class="col-form-label col-md-2">Recipient:</label>
         <div class="col-md-4 dropdown">
             <!-- <button class="dropdown-toggle">Team Type</button-->
             <div class="dropdown">
                 <select asp-for="Recip" class="dropdown">
-                    <option>Select Recipient</option>
+                   <!-- <option>Select Recipient</option>-->
+                    <option>All</option>
                 @foreach (Account acc in Model.Users)
                     {
-                        <option>@acc.UserName</option>
+                        if (!(acc.UserName == User.Identity?.Name))
+                        {
+                            <option>@acc.UserName</option>
+                        }
                     }
                 </select>
             </div>
