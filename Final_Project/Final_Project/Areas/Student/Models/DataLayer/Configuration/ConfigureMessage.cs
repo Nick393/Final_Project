@@ -10,12 +10,12 @@ namespace Final_Project.Areas.Student.Models.DataLayer.Configuration
         {
             // seed initial data
             entity.HasData(
-                 new { Title = "Message5", Body = "Body1", id = -6, UserName = "Null", isReply = false, ParentID = 0 },
-                new { Title = "Message5", Body = "Body1", id = -1, UserName = "Null", isReply = false, ParentID = 0 },
-                new { Title = "Message4", Body = "Body2", id = -2, UserName = "Null", isReply = false, ParentID = 0 },
-                new { Title = "Message3", Body = "Body3", id = -3, UserName = "Null", isReply = false, ParentID = 0 },
-                new { Title = "Message2", Body = "Body4", id = -4, UserName = "Null", isReply = false, ParentID = 0 },
-                new { Title = "Message1", Body = "Body5", id = -5, UserName = "Null", isReply = false, ParentID = 0 }
+                 new { Title = "Title", Body = "Body", id = -6, UserName = "Null", isReply = false, ParentID = 0, Recip = string.Empty, isPM = false },
+                new { Title = "Title", Body = "Body", id = -1, UserName = "Null", isReply = false, ParentID = 0, Recip = string.Empty, isPM = false },
+                new { Title = "Title", Body = "Body", id = -2, UserName = "Null", isReply = false, ParentID = 0, Recip = string.Empty, isPM = false },
+                new { Title = "Title", Body = "Body", id = -3, UserName = "Null", isReply = false, ParentID = 0, Recip = string.Empty, isPM = false },
+                new { Title = "Title", Body = "Body", id = -4, UserName = "Null", isReply = false, ParentID = 0, Recip = string.Empty, isPM = false },
+                new { Title = "Title", Body = "Body", id = -5, UserName = "Null", isReply = false, ParentID = 0, Recip = string.Empty, isPM = false }
             )  ;
         }
 

@@ -10,10 +10,10 @@
 
 <table class="table table-bordered table-striped table-sm">
     <thead>
-        <tr><th>Username</th><th>Title</th><th></th><th></th><th></th></tr>
+        <tr><th>Username</th><th></th><th>Title</th><th></th><th></th></tr>
     </thead>
     <tbody>
-    @if (Model.Messages.Count() == 0)
+    @if (Model.Messages.Count() == 0) 
     {
         <tr><td colspan="5">There are no Messages</td></tr>
     }
@@ -22,11 +22,31 @@
              
         @foreach (Message msg in Model.Messages)
         {
-            if(!msg.isReply)
+                if (!msg.isReply && (msg.isPM == false || msg.Recip == User.Identity?.Name || User.IsInRole("Admin") || msg.UserName == User.Identity?.Name))
             {
             <tr>
-            <td>@msg.UserName</td>
-            <td>@msg.Title</td>
+                @if(msg.UserName==User.Identity?.Name)
+                        {
+                            <td>From: You</td>
+                        }
+                        else
+                        {
+                        <td>From: @msg.UserName</td>
+                        }
+                        @if (msg.Recip == User.Identity?.Name)
+                        {
+                            <td>To: You</td>
+                        }
+                        else if(msg.Recip==string.Empty)
+                        {
+                            <td>To: All</td>
+                        }
+                        else
+                        {
+                            <td>To: @msg.Recip</td>
+                        }
+
+                    <td>@msg.Title</td>
             <td><form method="post" asp-action="Message"
                       asp-route-id="@msg.id">
                                 <button type="submit" class="btn btn-primary">
@@ -51,3 +71,11 @@
                 
     }
     </table>
+    @if(User.IsInRole("Admin"))
+    {
+        <form method="get"asp-action="Reset">
+        <button type="submit" class="btn btn-primary">
+            Reset Message Board
+        </button>
+        </form>
+    }

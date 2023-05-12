@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Final_Project.Models.DomainModels;
+using System.ComponentModel.DataAnnotations;
 
 namespace Final_Project.Areas.Student.Models.DomainModels
 {
@@ -15,6 +16,9 @@ namespace Final_Project.Areas.Student.Models.DomainModels
         public int id { get; set; }
         public string UserName { get; set; }=string.Empty;
        public bool isReply { get; set; }
+        public bool isPM { get;set; }
+        public string Recip { get; set; }=string.Empty;
+        public IEnumerable<Account> Users { get; set; } = null!;
         public int ParentID { get; set; }
         public List<Message> Replies { get; set; } = new List<Message>();
     }

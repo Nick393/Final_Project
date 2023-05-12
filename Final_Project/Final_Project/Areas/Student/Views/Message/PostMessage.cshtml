@@ -1,4 +1,6 @@
-﻿@model Final_Project.Areas.Student.Models.ViewModels.PostMessageModel
+﻿@using Final_Project.Models.DomainModels;
+@using Final_Project.Areas.Mentor.Models;
+@model Final_Project.Areas.Student.Models.ViewModels.PostMessageModel
 @{
     ViewBag.Title = "Post Message";
 }
@@ -23,6 +25,41 @@
         </div>
         <div class="col">
             <span asp-validation-for="Body" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Private Message?:</label>
+        <div class="col-md-4 dropdown">
+            <!-- <button class="dropdown-toggle">Team Type</button-->
+            <div class="dropdown">
+                <select asp-for="isPM" class="dropdown">
+                    
+                    <option>True</option>
+                    <option>False</option>
+                </select>
+            </div>
+            <div class="col">
+                <span asp-validation-for="isPM" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Recipient (leave blank if public):</label>
+        <div class="col-md-4 dropdown">
+            <!-- <button class="dropdown-toggle">Team Type</button-->
+            <div class="dropdown">
+                <select asp-for="Recip" class="dropdown">
+                    <option>Select Recipient</option>
+                @foreach (Account acc in Model.Users)
+                    {
+                        <option>@acc.UserName</option>
+                    }
+                </select>
+            </div>
+            <div class="col">
+                <span asp-validation-for="isPM" class="text-danger"></span>
+            </div>
         </div>
     </div>
     <div class="row">

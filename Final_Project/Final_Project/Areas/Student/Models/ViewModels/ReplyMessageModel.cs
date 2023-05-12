@@ -13,6 +13,8 @@ namespace Final_Project.Areas.Student.Models.ViewModels
         public int ParentId { get; set; }
         public List<Message> Replies = null!;
         bool isReply { get; set; }
+        public bool isPM { get; set; }
+        public string Recip { get; set; } = string.Empty;
         public int id { get; set; }
 
 

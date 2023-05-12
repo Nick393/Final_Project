@@ -1,9 +1,12 @@
-﻿using Final_Project.Areas.Student.Models.DomainModels;
+﻿//using AspNetCore;
+using Final_Project.Areas.Student.Models.DomainModels;
 using Final_Project.Areas.Student.Models.ViewModels;
 
 //using migrations
 using Final_Project.Models;
+using Final_Project.Models.DomainModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using System.Data;
@@ -16,14 +19,19 @@ namespace Final_Project.Areas.Student.Controllers
     public class MessageController : Controller
     {
         private SiteContext _siteContext;
+        private UserManager<Account> userManager;
+        private RoleManager<IdentityRole> roleManager;
         private List<Models.DomainModels.Message> messages = new List<Models.DomainModels.Message>();
         //private Repository<Message> data { get; set; }
-        public MessageController(SiteContext ctx)
+        public MessageController(SiteContext ctx, UserManager<Account> userMngr,
+            RoleManager<IdentityRole> roleMngr)
         {
             _siteContext = ctx;
             messages = _siteContext.Messages
                     .OrderBy(c => c.id)
                     .ToList();
+            userManager = userMngr;
+            roleManager = roleMngr;
         }
         [HttpGet]
         public IActionResult Index()
@@ -34,19 +42,21 @@ namespace Final_Project.Areas.Student.Controllers
         public IActionResult PostMessage()
         {
             PostMessageModel model = new PostMessageModel();
+            model.Users=userManager.Users.ToList();
             return View(model);
         }
         [HttpPost]
         public IActionResult PostMessage(PostMessageModel model)
         {
+            model.Users= userManager.Users.ToList();
             /*List<Message> messages;
 
             messages = _siteContext.Messages
                    .OrderBy(p => p.id).ToList();
             MessageViewModel viewModel = new MessageViewModel();
             viewModel.Messages = messages;*/
-
-            if (ModelState.IsValid)
+            
+            if (ModelState.ErrorCount<2)
             {
                 Models.DomainModels.Message message = new Models.DomainModels.Message();//This works
                 message.Title = model.Title;
@@ -55,7 +65,25 @@ namespace Final_Project.Areas.Student.Controllers
                 message.ParentID = 0;
                 message.UserName = User.Identity?.Name ?? "";
                 message.Body = model.Body;
+                message.Users = model.Users;
+                message.Recip=model.Recip;
                 message.Replies = model.Replies;
+                if (model.isPM == false)
+                {
+                    message.isPM = model.isPM;
+                    message.Recip = string.Empty;
+                }
+                else if(message.Recip=="Select Recipient")
+                {
+                    message.isPM = false;
+                    message.Recip = string.Empty;
+                }
+                else
+                {
+                    message.isPM = model.isPM; message.Recip = model.Recip;
+                }
+                
+                
                 _siteContext.Messages.Add(message);
                 _siteContext.SaveChanges();
                 return RedirectToAction("MessageBoard");
@@ -75,6 +103,7 @@ namespace Final_Project.Areas.Student.Controllers
                    .OrderBy(p => p.id).ToList();
             MessageViewModel viewModel = new MessageViewModel();
             viewModel.Messages = messages;
+            viewModel.Users = userManager.Users;
             return View(viewModel);
             //return View(model);
         }
@@ -179,6 +208,41 @@ namespace Final_Project.Areas.Student.Controllers
                 }
             }
             return RedirectToAction("MessageBoard");
+        }
+        [HttpGet]
+        public IActionResult Reset()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult ResetBoard()
+        {
+            foreach (Message msg in _siteContext.Messages)
+            {
+
+                msg.Replies =new List<Message>();
+                msg.Users = new List<Account>();
+                msg.isReply = false;
+                msg.isPM = false;
+                msg.Recip = string.Empty;
+                msg.UserName = string.Empty;
+                msg.Body = string.Empty;
+                msg.ParentID = 0;
+                msg.Title = string.Empty;
+                
+
+            }
+            
+           
+            _siteContext.SaveChanges();
+            foreach (Message msg in _siteContext.Messages)
+            {
+                msg.Users=new List<Account>();
+                _siteContext.Messages.Remove(msg);
+            }
+            _siteContext.SaveChanges();
+
+                return RedirectToAction("MessageBoard");
         }
     }
 }

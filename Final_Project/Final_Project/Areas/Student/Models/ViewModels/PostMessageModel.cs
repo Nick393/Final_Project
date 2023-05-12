@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Final_Project.Areas.Student.Models.DomainModels;
+using Final_Project.Models.DomainModels;
+
 namespace Final_Project.Areas.Student.Models.ViewModels
 {
     public class PostMessageModel
@@ -14,7 +16,10 @@ namespace Final_Project.Areas.Student.Models.ViewModels
         public string UserName { get; set; }= string.Empty;
         public List<Message>Replies=null!;
         public int parentId { get; set; }
+        public IEnumerable<Account> Users { get; set; } = null!;
         bool isReply { get; set; }
+        public bool isPM { get; set; }
+        public string Recip { get; set; } = string.Empty;
         public int id { get; set; }
 
 

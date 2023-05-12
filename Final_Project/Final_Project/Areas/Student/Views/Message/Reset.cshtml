@@ -1,0 +1,14 @@
+﻿<h1>Reset Message Board</h1>
+<h2>Warning: this will delete ALL messages on the messageboard</h2>
+<h2>THIS CANNOT BE UNDONE</h2>
+<form asp-action="ResetBoard" method="post">
+   
+    <div class="row">
+        <div class="col offset-md-2">
+            <button type="submit" class="btn btn-primary">
+                Reset Message Board
+            </button>
+            <a asp-action="MessageBoard" asp-controller="Message" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+</form>

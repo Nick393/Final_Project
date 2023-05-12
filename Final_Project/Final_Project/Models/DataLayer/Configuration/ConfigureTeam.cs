@@ -17,11 +17,11 @@ namespace Final_Project.Models.DataLayer.Configuration
         {
             // seed initial data
             entity.HasData(
-                new { Title = "Testd", Body = "Test1" },
-                new { Title = "Testc", Body = "Test2" },
-                new { Title = "Testb", Body = "Test3" },
-                new { Title = "Testa", Body = "Test4" },
-                new { Title = "Test", Body = "Test5" }
+                new { Title = "Title", Body = "Body" },
+                new { Title = "Title", Body = "Body" },
+                new { Title = "Title", Body = "Body" },
+                new { Title = "Title", Body = "Body" },
+                new { Title = "Title", Body = "Body" }
             );
         }
 

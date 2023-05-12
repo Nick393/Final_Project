@@ -40,8 +40,6 @@
   <ItemGroup>
     <None Include="Areas\Mentor\Views\User\Add.cshtml" />
     <None Include="Areas\Mentor\Views\User\Index.cshtml" />
-    <None Include="wwwroot\Images\download.png" />
-    <None Include="wwwroot\Images\Ice.jpg" />
   </ItemGroup>
 
 </Project>

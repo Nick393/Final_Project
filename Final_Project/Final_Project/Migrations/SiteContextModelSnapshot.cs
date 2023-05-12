@@ -68,6 +68,10 @@ namespace Final_Project.Migrations
                     b.Property<int>("ParentID")
                         .HasColumnType("int");
 
+                    b.Property<string>("Recip")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(100)
@@ -76,6 +80,9 @@ namespace Final_Project.Migrations
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isPM")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("isReply")
                         .HasColumnType("bit");
@@ -90,55 +97,67 @@ namespace Final_Project.Migrations
                         new
                         {
                             id = -6,
-                            Body = "Body1",
+                            Body = "Body",
                             ParentID = 0,
-                            Title = "Message5",
+                            Recip = "",
+                            Title = "Title",
                             UserName = "Null",
+                            isPM = false,
                             isReply = false
                         },
                         new
                         {
                             id = -1,
-                            Body = "Body1",
+                            Body = "Body",
                             ParentID = 0,
-                            Title = "Message5",
+                            Recip = "",
+                            Title = "Title",
                             UserName = "Null",
+                            isPM = false,
                             isReply = false
                         },
                         new
                         {
                             id = -2,
-                            Body = "Body2",
+                            Body = "Body",
                             ParentID = 0,
-                            Title = "Message4",
+                            Recip = "",
+                            Title = "Title",
                             UserName = "Null",
+                            isPM = false,
                             isReply = false
                         },
                         new
                         {
                             id = -3,
-                            Body = "Body3",
+                            Body = "Body",
                             ParentID = 0,
-                            Title = "Message3",
+                            Recip = "",
+                            Title = "Title",
                             UserName = "Null",
+                            isPM = false,
                             isReply = false
                         },
                         new
                         {
                             id = -4,
-                            Body = "Body4",
+                            Body = "Body",
                             ParentID = 0,
-                            Title = "Message2",
+                            Recip = "",
+                            Title = "Title",
                             UserName = "Null",
+                            isPM = false,
                             isReply = false
                         },
                         new
                         {
                             id = -5,
-                            Body = "Body5",
+                            Body = "Body",
                             ParentID = 0,
-                            Title = "Message1",
+                            Recip = "",
+                            Title = "Title",
                             UserName = "Null",
+                            isPM = false,
                             isReply = false
                         });
                 });
@@ -188,50 +207,50 @@ namespace Final_Project.Migrations
                             id = 1,
                             Prgm = "FRC",
                             Program = 0,
-                            about = "This is a team assocxiated with the ICE organization",
-                            description = "Description ICE",
-                            name = "Test1",
-                            number = "6419"
+                            about = "About",
+                            description = "Description",
+                            name = "Name",
+                            number = "Number"
                         },
                         new
                         {
                             id = 2,
                             Prgm = "FRC",
                             Program = 1,
-                            about = "This is a team assocxiated with the ICE organization",
-                            description = "Description Test1",
-                            name = "Test2",
-                            number = "Testc"
+                            about = "About",
+                            description = "Description",
+                            name = "Name",
+                            number = "Number"
                         },
                         new
                         {
                             id = 3,
                             Prgm = "FRC",
                             Program = 1,
-                            about = "This is a team assocxiated with the ICE organization",
-                            description = "Description Test2",
-                            name = "Test3",
-                            number = "Testb"
+                            about = "About",
+                            description = "Description",
+                            name = "Name",
+                            number = "Number"
                         },
                         new
                         {
                             id = 4,
                             Prgm = "FRC",
                             Program = 1,
-                            about = "This is a team assocxiated with the ICE organization",
-                            description = "Description Test3",
-                            name = "Test4",
-                            number = "Testa"
+                            about = "About",
+                            description = "Description",
+                            name = "Name",
+                            number = "Number"
                         },
                         new
                         {
                             id = 5,
                             Prgm = "FRC",
                             Program = 1,
-                            about = "This is a team assocxiated with the ICE organization",
-                            description = "Description Test4",
-                            name = "Test5",
-                            number = "Test"
+                            about = "About",
+                            description = "Description",
+                            name = "Name",
+                            number = "Number"
                         });
                 });
 
@@ -307,6 +326,9 @@ namespace Final_Project.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("datetimeoffset");
 
+                    b.Property<int?>("Messageid")
+                        .HasColumnType("int");
+
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -335,6 +357,8 @@ namespace Final_Project.Migrations
                         .HasColumnType("nvarchar(256)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Messageid");
 
                     b.HasIndex("NormalizedEmail")
                         .HasDatabaseName("EmailIndex");
@@ -487,6 +511,13 @@ namespace Final_Project.Migrations
                         .HasForeignKey("Messageid");
                 });
 
+            modelBuilder.Entity("Final_Project.Models.DomainModels.Account", b =>
+                {
+                    b.HasOne("Final_Project.Areas.Student.Models.DomainModels.Message", null)
+                        .WithMany("Users")
+                        .HasForeignKey("Messageid");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -541,6 +572,8 @@ namespace Final_Project.Migrations
             modelBuilder.Entity("Final_Project.Areas.Student.Models.DomainModels.Message", b =>
                 {
                     b.Navigation("Replies");
+
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

@@ -32,7 +32,7 @@ namespace Final_Project.Models.DataLayer.Configuration
                     await userManager.AddToRoleAsync(user, roleName);
                 }
             }
-            string StudentName = "Dean";
+            string StudentName = "Student";
             string Studentpassword = "Sesame";
             string role = "Student";
             if (await roleManager.FindByIdAsync(role) == null)
