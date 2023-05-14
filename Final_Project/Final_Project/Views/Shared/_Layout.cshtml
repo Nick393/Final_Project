@@ -35,6 +35,9 @@
                          <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="Student" asp-controller="Message" asp-action="MessageBoard">Message Board</a><!--Make the action for this-->
                          </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="EmailSubsystem" asp-controller="Email" asp-action="Index">Email Subsystem</a><!--Make the action for this-->
+                        </li>
                         <li class="nav-item dropdown">
                             <form method="get" asp-area="MemberLinks" asp-controller="Link"asp-action="Links"itemid="teamType">
                             <select name="teamType" class="form-control" onchange="document.forms[0].submit();"><option>Team Resources</option><option>FRC</option>
@@ -45,6 +48,7 @@
                             </form>
                             
                         </li>
+
                         <!--<li class="nav-item dropdown">
                             <a asp-action="Index" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">

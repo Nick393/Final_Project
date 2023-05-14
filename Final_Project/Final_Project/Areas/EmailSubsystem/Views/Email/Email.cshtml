@@ -1,0 +1,55 @@
+﻿@model Final_Project.Areas.EmailSubsystem.Models.DomainModels.Email
+
+<h1>@Model.Subject</h1>
+<div>
+</div>
+<div>
+</div>
+<table class="table table-bordered table-striped table-sm">
+    
+    <thead>
+        <tr><th>Username</th><th>Email Address</th><th></th><th></th><th></th></tr>
+    </thead>
+    
+    <tbody>
+        
+        @if (Model.emailsCSV != string.Empty)
+        {
+            string[] names= { };
+            string[] addresses= { };
+            if(Model.emailsCSV.Contains(","))
+            {
+                     names = Model.usernames.Split(",");
+                     addresses = Model.emailsCSV.Split(',');
+            }
+            else
+            {
+                names[0] = Model.usernames;
+                addresses[0] = Model.emailsCSV;
+            }
+
+            for(int i =0;i<names.Length;i++)
+            {
+                 <tr>
+                            <td>@names[i]</td>
+                            <td>@addresses[i]</td>
+                    
+                 </tr>
+                        
+            }
+   
+
+        }
+            else
+            {
+                <tr>
+                    <td>An error occurred displaying recipient list</td>
+                </tr>
+            }
+       
+    </tbody>
+</table>
+<div>
+</div>
+<p>@Model.Body</p>
+<a asp-action="Index" asp-controller="Email" class="btn btn-primary">Back</a>

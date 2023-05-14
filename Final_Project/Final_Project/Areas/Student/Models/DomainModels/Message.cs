@@ -10,7 +10,7 @@ namespace Final_Project.Areas.Student.Models.DomainModels
         public string Title { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Please enter a body")]
-        [StringLength(3000)]
+        [StringLength(10000)]
         public string Body { get; set; } = string.Empty;
         [Key]
         public int id { get; set; }

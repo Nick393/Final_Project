@@ -28,6 +28,38 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWNjdEFyZWFcVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/EmailSubsystem/Views/Email/Email.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1haWxTdWJzeXN0ZW1cVmlld3NcRW1haWxcRW1haWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/EmailSubsystem/Views/Email/Fail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1haWxTdWJzeXN0ZW1cVmlld3NcRW1haWxcRmFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/EmailSubsystem/Views/Email/Form.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1haWxTdWJzeXN0ZW1cVmlld3NcRW1haWxcRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/EmailSubsystem/Views/Email/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1haWxTdWJzeXN0ZW1cVmlld3NcRW1haWxcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/EmailSubsystem/Views/Email/SmtpConfig.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1haWxTdWJzeXN0ZW1cVmlld3NcRW1haWxcU210cENvbmZpZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/EmailSubsystem/Views/Email/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1haWxTdWJzeXN0ZW1cVmlld3NcRW1haWxcU3VjY2Vzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/EmailSubsystem/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1haWxTdWJzeXN0ZW1cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/EmailSubsystem/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRW1haWxTdWJzeXN0ZW1cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/MemberLinks/Views/Link/AddLink.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVtYmVyTGlua3NcVmlld3NcTGlua1xBZGRMaW5rLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

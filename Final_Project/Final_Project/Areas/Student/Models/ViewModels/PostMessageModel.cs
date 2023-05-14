@@ -11,7 +11,7 @@ namespace Final_Project.Areas.Student.Models.ViewModels
         public string Title { get; set; } = string.Empty;
 
         [Required(ErrorMessage = "Please enter a message Body.")]
-        [StringLength(3000)]
+        [StringLength(10000)]
         public string Body { get; set; } = string.Empty;
         public string UserName { get; set; }= string.Empty;
         public List<Message>Replies=null!;

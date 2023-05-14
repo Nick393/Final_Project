@@ -22,6 +22,69 @@ namespace Final_Project.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Final_Project.Areas.EmailSubsystem.Models.DomainModels.Email", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Body")
+                        .IsRequired()
+                        .HasMaxLength(10000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("emailsCSV")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("usernames")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Emails");
+                });
+
+            modelBuilder.Entity("Final_Project.Areas.EmailSubsystem.Models.DomainModels.SmtpConfig", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("emailAddress")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("port")
+                        .HasColumnType("int");
+
+                    b.Property<string>("provider")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("smtpKey")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("SMTPConfig");
+                });
+
             modelBuilder.Entity("Final_Project.Areas.MemberLinks.Models.DomainModels.Link", b =>
                 {
                     b.Property<int>("id")
@@ -59,8 +122,8 @@ namespace Final_Project.Migrations
 
                     b.Property<string>("Body")
                         .IsRequired()
-                        .HasMaxLength(3000)
-                        .HasColumnType("nvarchar(3000)");
+                        .HasMaxLength(10000)
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Messageid")
                         .HasColumnType("int");
@@ -101,7 +164,7 @@ namespace Final_Project.Migrations
                             ParentID = 0,
                             Recip = "",
                             Title = "Title",
-                            UserName = "Null",
+                            UserName = "[Null]",
                             isPM = false,
                             isReply = false
                         },
@@ -112,7 +175,7 @@ namespace Final_Project.Migrations
                             ParentID = 0,
                             Recip = "",
                             Title = "Title",
-                            UserName = "Null",
+                            UserName = "[Null]",
                             isPM = false,
                             isReply = false
                         },
@@ -123,7 +186,7 @@ namespace Final_Project.Migrations
                             ParentID = 0,
                             Recip = "",
                             Title = "Title",
-                            UserName = "Null",
+                            UserName = "[Null]",
                             isPM = false,
                             isReply = false
                         },
@@ -134,7 +197,7 @@ namespace Final_Project.Migrations
                             ParentID = 0,
                             Recip = "",
                             Title = "Title",
-                            UserName = "Null",
+                            UserName = "[Null]",
                             isPM = false,
                             isReply = false
                         },
@@ -145,7 +208,7 @@ namespace Final_Project.Migrations
                             ParentID = 0,
                             Recip = "",
                             Title = "Title",
-                            UserName = "Null",
+                            UserName = "[Null]",
                             isPM = false,
                             isReply = false
                         },
@@ -156,7 +219,7 @@ namespace Final_Project.Migrations
                             ParentID = 0,
                             Recip = "",
                             Title = "Title",
-                            UserName = "Null",
+                            UserName = "[Null]",
                             isPM = false,
                             isReply = false
                         });

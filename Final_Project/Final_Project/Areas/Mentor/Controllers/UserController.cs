@@ -8,6 +8,7 @@ using Final_Project.Models.ViewModels;
 using Final_Project.Areas.Mentor.Models;
 using Final_Project.Areas.Mentor.Models.ViewModels;
 using System.Reflection.Metadata.Ecma335;
+using Final_Project.Areas.Student.Models.DomainModels;
 
 namespace Final_Project.Areas.Mentor.Controllers
 {
@@ -69,6 +70,17 @@ namespace Final_Project.Areas.Mentor.Controllers
                     }
                     TempData["message"] = errorMessage;
                 }
+                else
+                {
+                    foreach(Message msg in siteContext.Messages)
+                    {
+                        if(msg.UserName==user.UserName)
+                        {
+                            msg.UserName = "[Deleted User]";
+                        }
+                    }
+                    siteContext.SaveChanges();
+                }
             }
             return RedirectToAction("Approval");
         }
@@ -121,6 +133,7 @@ namespace Final_Project.Areas.Mentor.Controllers
         public async Task<IActionResult> AddToAdmin(string id)
         {
             IdentityRole adminRole = await roleManager.FindByNameAsync("Admin");
+            IdentityRole StudentRole = await roleManager.FindByNameAsync("Student");
             if (adminRole == null)
             {
                 TempData["message"] = "Admin role does not exist. "
@@ -130,14 +143,16 @@ namespace Final_Project.Areas.Mentor.Controllers
             {
                 Account user = await userManager.FindByIdAsync(id);
                 await userManager.AddToRoleAsync(user, adminRole.Name);
+                await userManager.RemoveFromRoleAsync(user, StudentRole.Name);
             }
             return RedirectToAction("Approval");
         }
         [HttpPost]
         public async Task<IActionResult> AddToStudent(string id)
         {
-            IdentityRole adminRole = await roleManager.FindByNameAsync("Student");
-            if (adminRole == null)
+            IdentityRole StudentRole = await roleManager.FindByNameAsync("Student");
+
+            if (StudentRole == null)
             {
                 TempData["message"] = "Student role does not exist. "
                     + "Click 'Create Student Role' button to create it.";
@@ -145,7 +160,7 @@ namespace Final_Project.Areas.Mentor.Controllers
             else
             {
                 Account user = await userManager.FindByIdAsync(id);
-                await userManager.AddToRoleAsync(user, adminRole.Name);
+                await userManager.AddToRoleAsync(user, StudentRole.Name);
             }
             return RedirectToAction("Approval");
         }
@@ -155,6 +170,7 @@ namespace Final_Project.Areas.Mentor.Controllers
         {
             Account user = await userManager.FindByIdAsync(id);
             var result = await userManager.RemoveFromRoleAsync(user, "Admin");
+            await userManager.AddToRoleAsync(user, "Student");
             if (result.Succeeded) { }
             return RedirectToAction("Approval");
         }

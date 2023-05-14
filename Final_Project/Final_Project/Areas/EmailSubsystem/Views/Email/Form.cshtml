@@ -1,0 +1,56 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Final_Project.Areas.EmailSubsystem.Models.EmailModel
+<h1>Send Email</h1>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form method="post" asp-action="Form">
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Subject:</label>
+        <div class="col-md-4">
+            <input asp-for="Subject" class="form-control" />
+        </div>
+        <div class="col">
+            <span asp-validation-for="Subject" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Body:</label>
+        <div class="col-md-4">
+            <textarea asp-for="Body" class="form-control" rows="6"></textarea>
+        </div>
+        <div class="col">
+            <span asp-validation-for="Body" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Recipients:</label>
+        <div class="col-md-4 dropdown">
+            <!-- <button class="dropdown-toggle">Team Type</button-->
+            <div class="dropdown">
+                <select asp-for="UserName" class="dropdown">
+                    <option>Select Recipients</option>
+                    <option>Group: All</option>
+                    <option>Group: Students</option>
+                    <option>Group: Mentors</option>
+                    @foreach(Final_Project.Models.DomainModels.Account acct in Model.Users)
+                    {
+                        <option>User: @acct.UserName</option>
+                    }
+                </select>
+            </div>
+            <div class="col">
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col offset-md-2">
+            <button type="submit" class="btn btn-primary">Add</button>
+            <a asp-action="Index" asp-controller="Email" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+</form>

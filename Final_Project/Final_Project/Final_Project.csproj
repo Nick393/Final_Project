@@ -26,6 +26,7 @@
   <ItemGroup>
     <Folder Include="Areas\AcctArea\Models\" />
     <Folder Include="Areas\AcctArea\Views\Shared\" />
+    <Folder Include="Areas\EmailSubsystem\Data\" />
     <Folder Include="Areas\MemberLinks\Data\" />
     <Folder Include="Areas\Mentor\Views\Approval\" />
     <Folder Include="Areas\Mentor\Views\Home\" />

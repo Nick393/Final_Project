@@ -72,6 +72,11 @@ app.MapAreaControllerRoute(
     areaName: "MemberLinks",
     pattern: "MemberLinks/{controller=Link}/{action=Links}/{id?}"
     );
+app.MapAreaControllerRoute(
+    name: "EmailSubsystem",
+    areaName: "EmailSubsystem",
+    pattern: "EmailSubsystem/{controller=Email}/{action=Form}/{id?}"
+    );
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

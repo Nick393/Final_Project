@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Final_Project.Areas.EmailSubsystem.Models.SmtpConfigModel
+<h1>Send Email</h1>
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<form method="post" asp-action="SmtpConfig">
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Email Address:</label>
+        <div class="col-md-4">
+            <input asp-for="emailAddress" class="form-control" />
+            
+        </div>
+        <div class="col">
+            <span asp-validation-for="emailAddress" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">SMTP Key:</label>
+        <div class="col-md-4">
+            <input asp-for="smtpKey" class="form-control" />
+            
+        </div>
+        <div class="col">
+            <span asp-validation-for="smtpKey" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Port:</label>
+        <div class="col-md-4">
+            <input asp-for="port" class="form-control" />
+           
+        </div>
+        <div class="col">
+            <span asp-validation-for="port" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row mb-2">
+        <label class="col-form-label col-md-2">Provider:</label>
+        <div class="col-md-4">
+            <input asp-for="provider" class="form-control" />
+            
+        </div>
+        <div class="col">
+            <span asp-validation-for="provider" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col offset-md-2">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a asp-action="Index" asp-controller="Email" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+
+    </form>

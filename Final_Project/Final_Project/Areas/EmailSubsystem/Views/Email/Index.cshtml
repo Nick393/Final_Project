@@ -1,0 +1,71 @@
+﻿@using Final_Project.Areas.EmailSubsystem.Models.DomainModels;
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@{
+    ViewData["Title"] = " | Previous Emails";
+}
+@model Final_Project.Areas.EmailSubsystem.Models.EmailsModel
+
+<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<h1 class="mb-2">Previous Emails</h1>
+
+
+
+    <h5 class="mt-2"><a asp-action="Form">Write an email</a>|||<a asp-action="SmtpConfig">Change SMTP Configuration</a></h5>
+
+
+
+<table class="table table-bordered table-striped table-sm">
+    <thead>
+        <tr><th>Subject</th><th>Details</th><th></th></tr>
+    </thead>
+    <tbody>
+
+        @if (Model.emails.Count() == 0)
+        {
+            <tr><td colspan="5">There are no Emails</td></tr>
+        }
+        else
+        {
+
+            @foreach (Email email in Model.emails)
+            {
+                <tr>
+                    
+                    <td>@email.Subject</td>
+                    
+
+
+
+                    <td>
+                        <form method="post" asp-action="Email"
+                      asp-route-id="@email.id">
+                            <button type="submit" class="btn btn-primary">
+                                Details
+                            </button>
+                        </form>
+                    </td>
+                    
+                        <td>
+                            <form method="post" asp-action="Delete"
+                      asp-route-id="@email.id">
+                                <button type="submit" class="btn btn-primary">
+                                    Delete Email
+                                </button>
+                            </form>
+                        </td>
+                    
+
+
+
+                </tr>
+            }
+
+        }
+
+    </tbody>
+</table>
+
