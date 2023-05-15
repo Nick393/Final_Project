@@ -10,7 +10,7 @@ namespace Final_Project.Areas.EmailSubsystem.Models.DataLayer
         public void Configure(EntityTypeBuilder<DomainModels.SmtpConfig> Entity)
         {
             Entity.HasData(
-                new { emailAddress = "keymailservice@gmail.com", port = 587, provider="smtp.gmail.com", smtpKey= "vmgadsqskmtwnvjp",id=-1 }
+                new { emailAddress = "keymailservice@gmail.com", port = 587, provider="smtp.gmail.com", smtpKey= "vmgadsqskmtwnvjp",id=-1 ,reminder= "This is a friendly reminder about this message I sent a while ago: " }
 
 
                 );

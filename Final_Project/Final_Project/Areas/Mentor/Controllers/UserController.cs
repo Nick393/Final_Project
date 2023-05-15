@@ -265,7 +265,7 @@ namespace Final_Project.Areas.Mentor.Controllers
 
                 //Username = User.Identity?.Name ?? ""
 
-                //Massive Bugger! accounts must still be signed in for this to work properly/text for details
+                
 
             };
             //model.user = acc;

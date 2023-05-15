@@ -3,16 +3,19 @@ using Final_Project.Areas.EmailSubsystem.Models;
 using Final_Project.Areas.EmailSubsystem.Models.DomainModels;
 using Final_Project.Models;
 using Final_Project.Models.DomainModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Data;
 using System.Net;
 using System.Net.Mail;
 
 namespace Final_Project.Areas.EmailSubsystem.Controllers
 {
     [Area("EmailSubsystem")]
+    [Authorize(Roles = "Admin")]
     public class EmailController : Controller
     {
 
@@ -25,6 +28,133 @@ namespace Final_Project.Areas.EmailSubsystem.Controllers
             _siteContext = siteContext;
             userManager = userMngr;
             roleManager = roleMngr;
+        }
+        public async Task <IActionResult>ReMind(int id)
+        {
+            Email email = new Email();
+            foreach (Email em in _siteContext.Emails)
+            {
+                if (em.id == id)
+                {
+                    email = em; break;
+                }
+            }
+            EmailModel model = new EmailModel();
+            SmtpConfig smtpConfig = new SmtpConfig();
+            foreach(SmtpConfig cfg in _siteContext.SMTPConfig)
+            {
+                smtpConfig = cfg;
+            }
+            model.Users = userManager.Users;
+            model.Subject = "Reminder: "+email.Subject;
+            model.Body = smtpConfig.reminder+email.Body;
+            model.EmailAddresses = email.emailsCSV.Split(",").ToList();
+            if (model.EmailAddresses.Count == 1)
+            {
+                string add = email.emailsCSV;
+                Account user = await userManager.FindByEmailAsync(add);
+                model.UserName = "User: " + user.UserName;
+            }
+            else
+            {
+                List<Account> names = new List<Account>();
+                foreach (string mail in model.EmailAddresses)
+                {
+                    Account user = await userManager.FindByEmailAsync(mail);
+                    names.Add(user);
+                }
+                int student = 0;
+                int admin = 0;
+                foreach (Account acct in names)
+                {//it is assumed that each user can only be in one role.  
+                    acct.RoleNames = await userManager.GetRolesAsync(acct);
+                    if (acct.isRole("Student"))
+                    {
+                        student++;
+                    }
+                    if (acct.isRole("Admin"))
+                    {
+                        admin++;
+                    }
+                    if (student == names.Count())
+                    {
+                        model.UserName = "Group: Students";
+                    }
+                    else if (admin == names.Count())
+                    {
+                        model.UserName = "Group: Mentors";
+                    }
+                    else
+                    {
+                        model.UserName = "Group: All";
+                    }
+
+                }
+
+            }
+
+            return View("Form", model);
+        }
+        public async Task<IActionResult> ReSend(int id)
+        {
+            Email email=new Email();
+            foreach(Email em in _siteContext.Emails)
+            {
+                if(em.id==id)
+                {
+                    email=em; break;
+                }
+            }
+            EmailModel model = new EmailModel();
+            model.Users=userManager.Users;
+            model.Subject = email.Subject;
+            model.Body = email.Body;
+            model.EmailAddresses=email.emailsCSV.Split(",").ToList();
+            if(model.EmailAddresses.Count==1)
+            {
+                string add = email.emailsCSV;
+                Account user = await userManager.FindByEmailAsync(add);
+                model.UserName = "User: " + user.UserName;
+            }
+            else
+            {
+                List<Account> names = new List<Account>();
+                foreach(string mail in model.EmailAddresses)
+                {
+                    Account user = await userManager.FindByEmailAsync(mail);
+                    names.Add(user);
+                }
+                int student=0;
+                int admin=0;
+                foreach (Account acct in names)
+                {//it is assumed that each user can only be in one role.  
+                    acct.RoleNames=await userManager.GetRolesAsync(acct);
+                    if (acct.isRole("Student"))
+                    {
+                        student++;
+                    }
+                    if(acct.isRole("Admin"))
+                    {
+                        admin++;
+                    }
+                    if(student==names.Count())
+                    {
+                        model.UserName = "Group: Students";
+                    }
+                    else if(admin==names.Count())
+                    {
+                        model.UserName = "Group: Mentors";
+                    }
+                    else
+                    {
+                        model.UserName = "Group: All";
+                    }
+                    
+                }
+                
+            }
+            
+            return View("Form",model);
         }
         [HttpGet]
         public IActionResult Form()
@@ -165,11 +295,13 @@ namespace Final_Project.Areas.EmailSubsystem.Controllers
                     smtpClient.Send(mailMessage);
                     mailMessage.Bcc.Clear();
                     email.success = true;
+                    email.succeed = "T";
                 }
 
                 catch (Exception ex)
                 {
                     email.success = false;
+                    email.succeed = "F";
                     email.error = ex.Message;
                 }
                 foreach (string s in email.EmailAddresses)
@@ -260,6 +392,7 @@ namespace Final_Project.Areas.EmailSubsystem.Controllers
             model.emailAddress = config.emailAddress;
             model.provider = config.provider;
             model.smtpKey = config.smtpKey;
+            model.reminder= config.reminder;
             return View(model);
         }
         [HttpPost]
@@ -269,6 +402,7 @@ namespace Final_Project.Areas.EmailSubsystem.Controllers
             {
                 SmtpConfig smtpConfig = new SmtpConfig();
                 smtpConfig.smtpKey = model.smtpKey;
+                smtpConfig.reminder= model.reminder;
                 smtpConfig.emailAddress = model.emailAddress;
                 smtpConfig.provider = model.provider;
                 smtpConfig.port = model.port;

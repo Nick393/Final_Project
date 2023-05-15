@@ -4,6 +4,7 @@ using Final_Project.Areas.Team.Models.DomainModels;
 using Final_Project.Areas.Student.Models.ViewModels;
 using Final_Project.Areas.Team.Models;
 using Final_Project.Areas.Team.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Final_Project.Areas.Team.Controllers
 {
@@ -51,6 +52,7 @@ namespace Final_Project.Areas.Team.Controllers
 
             return RedirectToAction("Index");
         }
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public IActionResult AddTeam()
         {
@@ -58,6 +60,7 @@ namespace Final_Project.Areas.Team.Controllers
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult AddTeam(AddTeamModel model)
         {
            

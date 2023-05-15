@@ -51,6 +51,7 @@ namespace Final_Project.Areas.MemberLinks.Controllers
             //return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public RedirectToActionResult Delete(int id)
         {
             foreach (Models.DomainModels.Link link in _siteContext.Links)
@@ -69,12 +70,14 @@ namespace Final_Project.Areas.MemberLinks.Controllers
             return RedirectToAction("Links");
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult AddLink()
         {
             AddLinkModel model = new AddLinkModel();
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult AddLink(AddLinkModel model)
         {
 

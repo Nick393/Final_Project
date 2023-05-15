@@ -20,7 +20,8 @@ namespace Final_Project.Areas.EmailSubsystem.Models.DomainModels
         public List<string> EmailAddresses { get; set; } = null!;
         //public IEnumerable<Account> Users { get; set; } = null!;
         public string error=string.Empty;
-        public bool success=true;
+        public bool success;
+        public string succeed{get; set;}=string.Empty;
         [Key]
         public int id { get; set; }
     }

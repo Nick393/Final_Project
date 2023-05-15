@@ -2,6 +2,10 @@
 using Microsoft.AspNetCore.Identity;
 using Final_Project.Models.DomainModels;
 using Final_Project.Models.ViewModels;
+using Final_Project.Models;
+using System.Net.Mail;
+using System.Net;
+using Final_Project.Areas.EmailSubsystem.Models.DomainModels;
 
 namespace Final_Project.Controllers.Controllers
 {
@@ -9,11 +13,13 @@ namespace Final_Project.Controllers.Controllers
     {
         private UserManager<Account> userManager;
         private SignInManager<Account> signInManager;
+        private SiteContext _SiteContext;
 
         public AccountController(UserManager<Account> userMngr,
-            SignInManager<Account> signInMngr)
+            SignInManager<Account> signInMngr,SiteContext siteContext)
         {
             userManager = userMngr;
+            _SiteContext = siteContext;
             signInManager = signInMngr;
         }
 
@@ -135,6 +141,83 @@ namespace Final_Project.Controllers.Controllers
         public IActionResult MyAccount()
         {
             return View();
+        }
+        [HttpGet]
+        public IActionResult UserNameGet()
+        {
+            var get = new UserNameGet();
+            return View(get);
+        }
+        [HttpPost]
+        public IActionResult UserNameGet(UserNameGet model)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("ResetPassword", model);
+            }
+
+            return View(model);
+        }
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword(UserNameGet get)
+
+        {
+
+            Account account = new Account();
+            foreach (Account acct in userManager.Users)
+            {
+                if (acct.UserName == get.UserName)
+                {
+                    account = acct;
+                }
+            }
+            SmtpConfig config = new SmtpConfig();
+            foreach (SmtpConfig cfg in _SiteContext.SMTPConfig)
+            {
+                config = cfg;
+            }
+            string Key = await userManager.GeneratePasswordResetTokenAsync(account);
+            var smtpClient = new SmtpClient(config.provider)//provider=smtp.gmail.com
+            {
+                Port = config.port,//587 gmail//kgbfwawmqhernvmm//zllfebczaqewfqdx
+                                   //vmgadsqskmtwnvjp
+
+                //kgbfwawmqhernvmm
+                Credentials = new NetworkCredential(config.emailAddress, config.smtpKey),//keyMailService@gmail.com//vmgadsqskmtwnvjp
+                EnableSsl = true,
+            };
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress(config.emailAddress),
+                Subject = "Reset Password",
+                Body = "<p>" + "Your password reset token is: " + Key + "  Do not share it with anyone" + "</p>",
+                IsBodyHtml = true,
+
+            };
+            mailMessage.To.Add(config.emailAddress);
+            mailMessage.Bcc.Add(account.Email);
+            try
+            {
+                smtpClient.Send(mailMessage);
+                mailMessage.Bcc.Clear();
+            }
+            catch (Exception ex)
+            {
+                return View("Unable");
+            }
+            ResetPassword rs = new ResetPassword();
+            rs.Username = account.UserName;
+            return View("ResetPassword", rs);
+        }
+        [HttpGet]
+        public IActionResult ResetPassword(ResetPassword ps)
+        {
+            if (ModelState.IsValid)
+            {
+
+                return (RedirectToAction("Index"));
+            }
+            return View(ps);
         }
 
     }

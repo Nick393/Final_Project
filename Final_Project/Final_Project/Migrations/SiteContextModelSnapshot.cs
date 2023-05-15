@@ -48,6 +48,10 @@ namespace Final_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("succeed")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("usernames")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -76,6 +80,10 @@ namespace Final_Project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("reminder")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("smtpKey")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -83,6 +91,17 @@ namespace Final_Project.Migrations
                     b.HasKey("id");
 
                     b.ToTable("SMTPConfig");
+
+                    b.HasData(
+                        new
+                        {
+                            id = -1,
+                            emailAddress = "keymailservice@gmail.com",
+                            port = 587,
+                            provider = "smtp.gmail.com",
+                            reminder = "This is a friendly reminder about this message I sent a while ago: ",
+                            smtpKey = "vmgadsqskmtwnvjp"
+                        });
                 });
 
             modelBuilder.Entity("Final_Project.Areas.MemberLinks.Models.DomainModels.Link", b =>
