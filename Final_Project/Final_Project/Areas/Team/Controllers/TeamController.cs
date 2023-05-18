@@ -4,6 +4,7 @@ using Final_Project.Areas.Team.Models.DomainModels;
 using Final_Project.Areas.Student.Models.ViewModels;
 using Final_Project.Areas.Team.Models;
 using Final_Project.Areas.Team.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Final_Project.Areas.Team.Controllers
 {
@@ -13,7 +14,7 @@ namespace Final_Project.Areas.Team.Controllers
     {
         private SiteContext _siteContext;
         private List<Models.DomainModels.Team> teems = new List<Models.DomainModels.Team>();
-        
+
         public TeamController(SiteContext ctx)
         {
             _siteContext = ctx;
@@ -29,7 +30,7 @@ namespace Final_Project.Areas.Team.Controllers
             teams = _siteContext.Teams
                    .OrderBy(p => p.id).ToList();
             TeamsModel viewModel = new TeamsModel();
-            viewModel.teams =teams ;
+            viewModel.teams = teams;
             return View(viewModel);
             //return View(model);
         }
@@ -52,12 +53,14 @@ namespace Final_Project.Areas.Team.Controllers
             return RedirectToAction("Index");
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult AddTeam()
         {
             AddTeamModel model = new AddTeamModel();
             return View(model);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult AddTeam(AddTeamModel model)
         {
            
