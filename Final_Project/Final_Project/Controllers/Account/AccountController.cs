@@ -153,20 +153,32 @@ namespace Final_Project.Controllers.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View("ResetPassword", model);
+                bool found = false;
+                foreach(Account user in userManager.Users)
+                {
+                    if(model.UserName.ToUpper()== user.NormalizedUserName) {
+                        found = true;
+                        model.UserName=model.UserName.Normalize();
+                        break;
+                    }
+                }
+                if (found)
+                {
+                    return RedirectToAction("MiddleMan", model);
+                }
             }
 
             return View(model);
         }
-        [HttpPost]
-        public async Task<IActionResult> ResetPassword(UserNameGet get)
+        
+        public async Task<IActionResult> MiddleMan(UserNameGet get)
 
         {
 
             Account account = new Account();
             foreach (Account acct in userManager.Users)
             {
-                if (acct.UserName == get.UserName)
+                if (acct.UserName.ToLower() == get.UserName.ToLower())
                 {
                     account = acct;
                 }
@@ -207,18 +219,28 @@ namespace Final_Project.Controllers.Controllers
             }
             ResetPassword rs = new ResetPassword();
             rs.Username = account.UserName;
-            return View("ResetPassword", rs);
+            return RedirectToAction("ResetPassword", rs);
         }
-        [HttpGet]
-        public IActionResult ResetPassword(ResetPassword ps)
+       
+        public async Task <IActionResult> ResetPassword(ResetPassword ps)
         {
             if (ModelState.IsValid)
             {
+                Account user = await userManager.FindByNameAsync(ps.Username);
+                var result = await userManager.ResetPasswordAsync(user,
+                    ps.ResetToken, ps.NewPassword);
+                if (result.Succeeded)
+                {
 
-                return (RedirectToAction("Index"));
+
+
+                    return (RedirectToAction("Success"));
+                }
+
             }
             return View(ps);
         }
+        public IActionResult Success() { return View(); }   
 
     }
 }
