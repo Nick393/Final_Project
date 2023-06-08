@@ -30,6 +30,8 @@
     <Folder Include="Areas\MemberLinks\Data\" />
     <Folder Include="Areas\Mentor\Views\Approval\" />
     <Folder Include="Areas\Mentor\Views\Home\" />
+    <Folder Include="Areas\PermissionSlipsSystem\Data\" />
+    <Folder Include="Areas\PermissionSlipsSystem\Models\ViewModels\" />
     <Folder Include="Areas\Student\Views\Shared\" />
     <Folder Include="Areas\Team\Data\" />
     <Folder Include="Areas\Team\Models\Models\" />

@@ -11,6 +11,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Conventions;
 using Microsoft.VisualBasic;
 using System.Data;
+using System.Net.Mail;
+using System.Net;
+using Final_Project.Areas.EmailSubsystem.Models.DomainModels;
+using Final_Project.Migrations;
 
 namespace Final_Project.Areas.Student.Controllers
 {
@@ -47,7 +51,7 @@ namespace Final_Project.Areas.Student.Controllers
             return View(model);
         }
         [HttpPost]
-        public IActionResult PostMessage(PostMessageModel model)
+        public async Task <IActionResult> PostMessage(PostMessageModel model)
         {
             model.Users= userManager.Users.ToList();
             /*List<Message> messages;
@@ -81,8 +85,49 @@ namespace Final_Project.Areas.Student.Controllers
                 }
                 else
                 {
+                    Final_Project.Areas.EmailSubsystem.Models.DomainModels.SmtpConfig  sm= new Final_Project.Areas.EmailSubsystem.Models.DomainModels.SmtpConfig();
                     message.isPM = true; message.Recip = model.Recip;
-                }
+                    if (_siteContext.SMTPConfig.Count() > 0)
+                    {
+                        foreach (SmtpConfig sMTPConfig in _siteContext.SMTPConfig)
+                        {
+                            if (sMTPConfig.smtpKey != null)
+                            {
+                                sm = sMTPConfig;
+                            }
+                        }
+                    }
+                    var smtpClient = new SmtpClient(sm.provider)//provider=smtp.gmail.com
+                    {
+                        Port = sm.port,//587 gmail//kgbfwawmqhernvmm//zllfebczaqewfqdx
+                                       //vmgadsqskmtwnvjp
+
+                        //kgbfwawmqhernvmm
+                        Credentials = new NetworkCredential(sm.emailAddress, sm.smtpKey),//keyMailService@gmail.com//vmgadsqskmtwnvjp
+                        EnableSsl = true,
+                    };
+                    var mailMessage = new MailMessage
+                    {
+                        From = new MailAddress(sm.emailAddress),
+                        Subject = model.Recip+ " sent you a message!",
+                        Body = "<p>View online</p>",
+                        IsBodyHtml = true,
+
+                    };
+                    mailMessage.To.Add(sm.emailAddress);
+                   Account recip=await userManager.FindByNameAsync(model.Recip);
+                    mailMessage.Bcc.Add(recip.Email);
+                    try
+                    {
+                        smtpClient.Send(mailMessage);
+                        mailMessage.Bcc.Clear();
+                        
+                    }
+
+                    catch (Exception ex)
+                    {
+                    }
+                    }
                 
                 
                 _siteContext.Messages.Add(message);

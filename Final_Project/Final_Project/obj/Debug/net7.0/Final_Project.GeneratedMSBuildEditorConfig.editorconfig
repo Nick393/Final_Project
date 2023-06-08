@@ -108,6 +108,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTWVudG9yXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/PermissionSlipsSystem/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGVybWlzc2lvblNsaXBzU3lzdGVtXFZpZXdzXEhvbWVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/PermissionSlipsSystem/Views/Home/PostEvent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGVybWlzc2lvblNsaXBzU3lzdGVtXFZpZXdzXEhvbWVcUG9zdEV2ZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/PermissionSlipsSystem/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGVybWlzc2lvblNsaXBzU3lzdGVtXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/PermissionSlipsSystem/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcUGVybWlzc2lvblNsaXBzU3lzdGVtXFZpZXdzXF9WaWV3U3RhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/cmgke/Documents/GitHub/Final_Project/Final_Project/Final_Project/Areas/Student/Views/Home/CreateAccount.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcU3R1ZGVudFxWaWV3c1xIb21lXENyZWF0ZUFjY291bnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

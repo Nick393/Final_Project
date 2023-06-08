@@ -131,6 +131,55 @@ namespace Final_Project.Migrations
                     b.ToTable("Links");
                 });
 
+            modelBuilder.Entity("Final_Project.Areas.PermissionSlipsSystem.Models.DomainModels.Slip", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EventName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EventType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Slipid")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("eventEndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("eventStartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("isMain")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("signed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.HasIndex("Slipid");
+
+                    b.ToTable("slips");
+                });
+
             modelBuilder.Entity("Final_Project.Areas.Student.Models.DomainModels.Message", b =>
                 {
                     b.Property<int>("id")
@@ -586,6 +635,13 @@ namespace Final_Project.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Final_Project.Areas.PermissionSlipsSystem.Models.DomainModels.Slip", b =>
+                {
+                    b.HasOne("Final_Project.Areas.PermissionSlipsSystem.Models.DomainModels.Slip", null)
+                        .WithMany("replies")
+                        .HasForeignKey("Slipid");
+                });
+
             modelBuilder.Entity("Final_Project.Areas.Student.Models.DomainModels.Message", b =>
                 {
                     b.HasOne("Final_Project.Areas.Student.Models.DomainModels.Message", null)
@@ -649,6 +705,11 @@ namespace Final_Project.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Final_Project.Areas.PermissionSlipsSystem.Models.DomainModels.Slip", b =>
+                {
+                    b.Navigation("replies");
                 });
 
             modelBuilder.Entity("Final_Project.Areas.Student.Models.DomainModels.Message", b =>

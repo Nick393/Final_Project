@@ -1,0 +1,70 @@
+﻿@using Final_Project.Areas.PermissionSlipsSystem.Models.DomainModels;
+@model Final_Project.Areas.PermissionSlipsSystem.Models.SlipsModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 class="mb-2">Permission Slips</h1>
+@if (User.IsInRole("Admin"))     
+{
+    <h5 class="mt-2"><a asp-action="PostEvent">Post a Slip</a></h5>
+}
+
+<table class="table table-bordered table-striped table-sm">
+    <thead>
+        <tr><th>Event</th><th></th><th>Start Date</th><th></th><th></th></tr>
+    </thead>
+    <tbody>
+
+        @if (Model.Slips.Count() == 0)
+        {
+            <tr><td colspan="5">There are no Slips</td></tr>
+        }
+        else
+        {
+
+            @foreach (Slip s in Model.Slips)
+            {
+                
+                    if (s.isMain)
+                    {
+                        <tr>
+                            
+
+                            <td>@s.EventName</td>
+                            <td>
+                                <form method="post" asp-action="Message"
+                      asp-route-id="@s.id">
+                                    <button type="submit" class="btn btn-primary">
+                                        Open Permission Slip
+                                    </button>
+                                </form>
+                            </td>
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <td>
+                                    <form method="post" asp-action="Delete"
+                      asp-route-id="@s.id">
+                                        <button type="submit" class="btn btn-primary">
+                                            Delete Slip
+                                        </button>
+                                    </form>
+                                </td>
+                            }
+                        </tr>
+                    }
+                
+            }
+
+        }
+</table>
+@if (User.IsInRole("Admin"))
+{
+    <form method="get" asp-action="Reset">
+        <button type="submit" class="btn btn-primary">
+            Delete all Permission Slip data
+        </button>
+    </form>
+}
+

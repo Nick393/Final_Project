@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Final_Project.Areas.EmailSubsystem.Models.DomainModels;
 using Final_Project.Areas.EmailSubsystem.Models.DataLayer;
+using Final_Project.Areas.PermissionSlipsSystem.Models.DomainModels;
 
 namespace Final_Project.Models
 {
@@ -19,6 +20,7 @@ namespace Final_Project.Models
         public DbSet<Email> Emails { get; set; } = null!;
         
         public DbSet<Message> Messages { get; set; } = null!;
+        public DbSet<Slip> slips { get; set; } = null!;
         public DbSet<Final_Project.Areas.Team.Models.DomainModels.Team> Teams { get; set; } = null!;
         public DbSet<Final_Project.Areas.VolunteerRequest.Models.DomainModels.Request> VolReqs { get; set; } = null!;
         public DbSet<Final_Project.Areas.MemberLinks.Models.DomainModels.Link> Links { get; set; } = null!;

@@ -77,6 +77,11 @@ app.MapAreaControllerRoute(
     areaName: "EmailSubsystem",
     pattern: "EmailSubsystem/{controller=Email}/{action=Form}/{id?}"
     );
+app.MapAreaControllerRoute(
+    name: "PermissionSlipsSystem",
+    areaName: "PermissionSlipsSystem",
+    pattern: "PermissionSlipsSystem/{controller=Home}/{action=Index}/{id?}"
+    );
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
